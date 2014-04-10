@@ -1,0 +1,34 @@
+2,000	O	O
+fetuses	O	O
+found	O	O
+hidden	O	O
+at	O	O
+Thai	I-LOC	I-Facility
+Buddhist	I-LOC	I-Facility
+temple	I-LOC	I-Facility
+_URL_	O	O
+via	O	O
+_Mention_	O	O
+
+870	O	O
+,	O	O
+000	O	O
+people	O	O
+in	O	O
+canada	I-LOC	I-Country
+depend	O	O
+on	O	O
+_HASHTAG_	O	O
+-25	O	O
+%	O	O
+increase	O	O
+in	O	O
+the	O	O
+last	O	O
+2	O	O
+years	O	O
+-	O	O
+please	O	O
+give	O	O
+generously	O	O
+
