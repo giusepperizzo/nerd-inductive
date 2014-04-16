@@ -33,56 +33,18 @@ public class Main {
 
 	public static final String BOUNDARY = "*BOUNDARY*";
 
-	
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) 
 	{
 		Main main = new Main();
 		
-		//main.readJSON(args[0]);
 		List<CoreLabel> ll =  main.readCoNLL(args[0]);
 		
-		//System.out.println( main.countEntities(ll) );
 		Pair pair = main.computeStatsByAlignment(ll);
-		Vector<String> types = new Vector<String>( (TreeSet<String>)pair.getA() );
 		
+		Vector<String> types = new Vector<String>( (TreeSet<String>)pair.getA() );
 		Map<String, HashMap<String, Integer>> alignments = 
 					(HashMap<String, HashMap<String, Integer>>) pair.getB();
-		
-//		System.out.printf("alignment\t\tGS\n-----------------\n");
-//		for (Entry<String,HashMap<String,Integer>> entry : alignments.entrySet()) 
-//		{
-//			System.out.printf("%s\n", entry.getKey());
-//			for (Entry<String,Integer>  eM : entry.getValue().entrySet()) {
-//				System.out.printf("\t\t%s %d\n", eM.getKey(), eM.getValue());
-//			}
-//		}
-//		
-//		for (Entry<String,HashMap<String,Integer>> entry : alignments.entrySet()) 
-//		{
-//			Map<String, Integer> map = entry.getValue();
-//
-//			StringBuilder sb = new StringBuilder();
-//			sb
-//				.append(entry.getKey())
-//				.append(";");
-//			
-//			for(String gstype : types) 
-//			{
-//				if(map.containsKey(gstype))
-//					sb.append(map.get(gstype));
-//				else
-//					sb.append("0");
-//				sb.append(";");
-//			}
-//			
-//			String result = sb.toString()
-//								.trim()
-//								.substring(0, sb.toString().length()-1)
-//								.concat("\n");
-//
-//			System.out.print(result);
-//		}
 		
 		main.serialize(types, alignments, args[1]);
 		
@@ -162,7 +124,8 @@ public class Main {
 			ans = ans.replaceAll("(^I-)", "").replaceAll("(^B-)", "");
 		
 			String[] annotations = ans.split(",");
-			for(String annotation : annotations) {
+			for(String annotation : annotations) 
+			{			
 				HashMap<String, Integer> mapper = alignments.remove(annotation);
 				mapper = (mapper == null) ? new HashMap<String, Integer>(): mapper;
 					

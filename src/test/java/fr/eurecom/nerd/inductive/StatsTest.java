@@ -33,7 +33,8 @@ public class StatsTest extends TestCase
     public void testStats() 
     {
     	Main main = new Main();
-		List<CoreLabel> ll = main.readCoNLL("/home/rizzo/Cloud/Dropbox/ISWC2014/msm2013/train/alchemyapi.conll");
+		List<CoreLabel> ll = main.readCoNLL("/home/rizzo/Cloud/Dropbox/ISWC2014/msm2013/test/alchemyapi.conll");
+		main.computeStatsByAlignment(ll);
 		assertTrue(true);
     }
 }
