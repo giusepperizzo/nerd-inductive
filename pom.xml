@@ -39,6 +39,17 @@
       <artifactId>stanford-corenlp</artifactId>
       <version>3.3.1</version>
     </dependency>
+    <dependency>
+      <groupId>org.apache.jena</groupId>
+      <artifactId>apache-jena-libs</artifactId>
+      <type>pom</type>
+      <version>2.11.1</version>
+    </dependency>
+    <dependency>
+      <groupId>edu.stanford.protege</groupId>
+      <artifactId>protege</artifactId>
+      <version>3.5.0</version>
+    </dependency>   
   </dependencies>
 
   <build>

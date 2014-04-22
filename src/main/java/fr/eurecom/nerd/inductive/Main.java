@@ -90,7 +90,7 @@ public class Main {
 									.substring(0, sb.toString().length()-1)
 									.concat("\n");
 	
-					bw.write(result);
+				bw.write(result);
 			}
 			bw.close();
 		} catch (IOException e) {
