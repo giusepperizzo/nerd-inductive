@@ -1,4 +1,4 @@
-package fr.eurecom.nerd.inductive;
+package fr.eurecom.nerd.inductive.stats;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -31,14 +31,14 @@ import edu.stanford.nlp.sequences.SeqClassifierFlags;
 
 import fr.eurecom.nerd.inductive.core.*;
 
-public class Main {
+public class Alignments {
 
 	public static final String BOUNDARY = "*BOUNDARY*";
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) 
 	{
-		Main main = new Main();
+		Alignments main = new Alignments();
 		
 		List<CoreLabel> ll =  main.readCoNLL(args[0]);
 		
