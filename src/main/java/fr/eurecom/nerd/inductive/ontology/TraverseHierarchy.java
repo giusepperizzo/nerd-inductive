@@ -1,15 +1,23 @@
 package fr.eurecom.nerd.inductive.ontology;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Restriction;
 import com.hp.hpl.jena.rdf.model.AnonId;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.shared.PrefixMapping;
 import com.hp.hpl.jena.util.iterator.Filter;
@@ -75,13 +83,17 @@ public class TraverseHierarchy {
                 renderURI( c.getModel(), c.getURI() );
                 
                 if(depth > maxDepth-1) {
-                    int back = depth-maxDepth-1;
-                    OntClass ancestor = c.getSuperClass();
+                    //int back = depth-maxDepth-1;
+                    int back = depth-maxDepth;
+                	OntClass ancestor = c;
+                	//for (int i=0; i<=back; i++) {
                 	for (int i=0; i<=back; i++) {
+                		if ( ancestor.getSuperClass() == null ) break;
                 		ancestor = ancestor.getSuperClass();
                 	}
                 	
-                	subOf.put( c.getLocalName(), ancestor.getLocalName() );
+                	String localname = (ancestor==null) ? c.getLocalName() : ancestor.getLocalName();
+                	subOf.put( c.getLocalName(), localname );
                 }
             }
             else {
@@ -109,6 +121,31 @@ public class TraverseHierarchy {
             anonID = "a-" + m_anonCount++;
             m_anonIDs.put( anon.getId(), anonID );
         }
+    }
+    
+    public static void main( String[] args ) 
+    {
+    	String schema = args[0];
+    	String encoding = args[1];
+    	int maxDepth = Integer.parseInt(args[2]);
+    	String output = args[3];
+
+    	OntModel m = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM, null );
+		m.read(schema, encoding);
+		
+        TraverseHierarchy traverse = new TraverseHierarchy();
+        traverse.resolve(m, maxDepth);
+        Map<String,String> mappings = traverse.getSubOf();
+        
+        try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(new File(output)));
+			for (String s : new TreeSet<String>(mappings.keySet())) {
+	        	bw.write(s.concat("\t").concat(mappings.get(s)).concat("\n"));
+	        }
+			bw.close();
+        } catch (IOException e) {
+			e.printStackTrace();
+		}      
     }
 
 }
