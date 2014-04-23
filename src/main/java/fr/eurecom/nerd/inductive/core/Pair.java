@@ -1,4 +1,4 @@
-package fr.eurecom.nerd.inductive;
+package fr.eurecom.nerd.inductive.core;
 
 public class Pair {
 	Object A;

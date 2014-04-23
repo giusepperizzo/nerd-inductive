@@ -1,4 +1,4 @@
-package fr.eurecom.nerd.inductive;
+package fr.eurecom.nerd.inductive.core;
 
 
 import java.util.Comparator;

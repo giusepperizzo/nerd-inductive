@@ -29,6 +29,8 @@ import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.sequences.CoNLLDocumentReaderAndWriter;
 import edu.stanford.nlp.sequences.SeqClassifierFlags;
 
+import fr.eurecom.nerd.inductive.core.*;
+
 public class Main {
 
 	public static final String BOUNDARY = "*BOUNDARY*";
