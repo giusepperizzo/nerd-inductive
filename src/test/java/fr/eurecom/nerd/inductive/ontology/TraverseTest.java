@@ -14,13 +14,27 @@ public class TraverseTest extends TestCase {
     {
     	OntModel m = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM, null );
 		m.read("data/test.owl", "RDF/XML");
-		int maxDepth = 2;
+		int maxDepth = 1;
 		
 		TraverseHierarchy traverse = new TraverseHierarchy();
 		traverse.resolve(m, maxDepth);
 		Map<String,String> subOf = traverse.getSubOf();
 		
-		assertEquals(4, subOf.size());
+		assertEquals(6, subOf.size());
+		
+    }
+	
+	public void test2()
+    {
+    	OntModel m = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM, null );
+		m.read("data/dbpedia_3.8.owl", "RDF/XML");
+		int maxDepth = 1;
+		
+		TraverseHierarchy traverse = new TraverseHierarchy();
+		traverse.resolve(m, maxDepth);
+		Map<String,String> subOf = traverse.getSubOf();
+		
+		assertEquals(319, subOf.size());
 		
     }
 }

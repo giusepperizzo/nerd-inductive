@@ -31,18 +31,18 @@ import edu.stanford.nlp.sequences.SeqClassifierFlags;
 
 import fr.eurecom.nerd.inductive.core.*;
 
-public class Alignments {
+public class InvertedAlignments {
 
 	public static final String BOUNDARY = "*BOUNDARY*";
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) 
 	{
-		Alignments main = new Alignments();
+		InvertedAlignments main = new InvertedAlignments();
 		
 		List<CoreLabel> ll =  main.readCoNLL(args[0]);
 		
-		Pair pair = main.computeStatsByAlignment(ll);
+		Pair pair = main.computeStatsByGS(ll);
 		
 		Vector<String> types = new Vector<String>( (TreeSet<String>)pair.getA() );
 		Map<String, HashMap<String, Integer>> alignments = 
@@ -146,10 +146,12 @@ public class Alignments {
 		return new Pair(types, alignments);
 	}
 	
-	public HashMap<String, HashMap<String, Integer>> computeStatsByGS (List<CoreLabel> ll) 
+	public Pair computeStatsByGS (List<CoreLabel> ll) 
 	{
-		HashMap<String, HashMap<String, Integer>> result = 
+		HashMap<String, HashMap<String, Integer>> alignments = 
 					new HashMap<String, HashMap<String,Integer>>();
+		
+		Set<String> types = new TreeSet<String>();
 		
 		for (CoreLabel fl : ll) 
 		{
@@ -169,7 +171,7 @@ public class Alignments {
 			ans = ans.replaceAll("^I-", "").replaceAll("^B-", "");
 		
 			
-			HashMap<String, Integer> mapping = result.remove(gold);
+			HashMap<String, Integer> mapping = alignments.remove(gold);
 			mapping = (mapping == null) ? new HashMap<String, Integer>(): mapping;
 				
 			Integer occ = mapping.remove(ans);
@@ -177,11 +179,13 @@ public class Alignments {
 
 			//restore the updates
 			mapping.put(ans, occ);
-			result.put(gold, mapping);
+			alignments.put(gold, mapping);
+			
+			types.add(ans);
 
 		}
 		
-		return result;
+		return new Pair(types, alignments);
 	}
 	
 	public int countEntities (List<CoreLabel> ll) 

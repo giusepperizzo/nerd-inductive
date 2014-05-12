@@ -9,9 +9,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeSet;
 
+import com.hp.hpl.jena.ontology.ConversionException;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
 import com.hp.hpl.jena.ontology.OntModelSpec;
@@ -88,12 +88,17 @@ public class TraverseHierarchy {
                 	OntClass ancestor = c;
                 	//for (int i=0; i<=back; i++) {
                 	for (int i=0; i<=back; i++) {
-                		if ( ancestor.getSuperClass() == null ) break;
-                		ancestor = ancestor.getSuperClass();
+                		try{
+	                		if ( ancestor.getSuperClass() == null ) break;
+	                		ancestor = ancestor.getSuperClass();
+                		}catch(ConversionException e) {
+                			//none
+                		}
                 	}
                 	
-                	String localname = (ancestor==null) ? c.getLocalName() : ancestor.getLocalName();
-                	subOf.put( c.getLocalName(), localname );
+                	String localname = (ancestor==null) ? c.getURI() : ancestor.getURI();
+                	//subOf.put( c.getLocalName(), localname );
+                	subOf.put(c.getURI(), localname);
                 }
             }
             else {
