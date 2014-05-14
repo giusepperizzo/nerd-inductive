@@ -1,0 +1,117 @@
+ ### MSM2013 
+ 
+
+ alchemyapi.NaiveBayes.nerdtype<-c(91.21,55.29,45.28,3.46,80.08)
+ alchemyapi.NaiveBayes_uritype<-c(91.46,56.45,49.36,10.88,80.96)
+ alchemyapi.NaiveBayes.uritype.first<-c(91.46,56.45,49.36,10.88,80.96)
+
+ alchemyapi.IB1_nerdtype<-c(89.63,41.26,36.48,17.08,75.58)
+ alchemyapi.IB1_uritype<-c(89.65,41.16,45.47,16.50,75.65)
+ alchemyapi.IB1_uritype_first<-c(89.65,41.16,45.47,16.50,75.65)
+
+ datatxt.NaiveBayes_nerdtype<-c(74.44,52.24,18.23,38.46,64.76)
+ datatxt.NaiveBayes_uritype<-c(82.15,56.81,47.60,41.18,73.23)
+ datatxt.NaiveBayes_uritype_first<-c(79.64,53.57,29.40,23.31,70.08)
+ datatxt.NaiveBayes_uritype_second<-c(83.51,56.41,46.09,41.86,73.63)
+ datatxt.NaiveBayes_uritype_third<-c(83.11,52.01,44.96,42.55,73.03)
+
+ datatxt.IB1_nerdtype<-c(66.45,55.93,35.84,21.98,58.07)
+ datatxt.IB1_uritype<-c(82.25,56.41,41.95,28.80,71.84)
+ datatxt.IB1_uritype_first<-c(71.27,56.80,38.35,25.26,62.46)
+ datatxt.IB1_uritype_second<-c(71.09,58.93,38.56,29.95,63.00)
+ datatxt.IB1_uritype_third<-c(82.78,53.96,37.59,28.95,71.71)
+
+ dbspotlight.NaiveBayes_nerdtype<-c(78.10,39.48,32.08,18.12,66.78)
+ dbspotlight.NaiveBayes_uritype<-c(76.78,43.29,40.84,24.05,67.37)
+ dbspotlight.NaiveBayes_uritype_first<-c(75.38,38.02,25.64,12.61,65.24)
+ dbspotlight.NaiveBayes_uritype_second<-c(78.42,42.19,38.85,21.41,67.51)
+ dbspotlight.NaiveBayes_uritype_third<-c(78.41,43.36,39.03,23.89,68.18)
+
+ dbspotlight.IB1_nerdtype<-c(82.42,45.23,36.67,19.34,70.96)
+ dbspotlight.IB1_uritype<-c(81.45,21.01,38.83,20.93,65.70)
+ dbspotlight.IB1_uritype_first<-c(77.81,25.61,30.44,22.97,63.19)
+ dbspotlight.IB1_uritype_second<-c(79.98,15.95,37.52,20.98,63.35)
+ dbspotlight.IB1_uritype_third<-c(80.94,19.25,36.05,20.93,64.70)
+
+ lupedia.NaiveBayes_nerdtype<-c(71.86,30.85,23.27,8.89,59.66)
+ lupedia.NaiveBayes_uritype<-c(72.22,32.82,29.64,6.04,60.29)
+ lupedia.NaiveBayes_uritype_first<-c(70.60,30.85,21.15,6.08,58.72)
+ lupedia.NaiveBayes_uritype_second<-c(71.93,32.12,27.44,5.80,59.62)
+ lupedia.NaiveBayes_uritype_third<-c(71.87,32.16,29.84,5.88,59.94)
+ 
+ lupedia.IB1_nerdtype<-c(80.36,40.61,39.35,23.53,68.97)
+ lupedia.IB1_uritype<-c(81.02,42.19,41.23,19.19,68.80)
+ lupedia.IB1_uritype_first<-c(79.67,40.91,39.25,21.64,68.74)
+ lupedia.IB1_uritype_second<-c(80.74,41.04,40.26,19.29,68.35)
+ lupedia.IB1_uritype_third<-c(80.87,41.35,40.65,19.29,68.54)
+ 
+ opencalais.NaiveBayes_nerdtype<-c(84.68,47.29,30.28,36.36,74.85)
+ opencalais.NaiveBayes_uritype_first<-c(84.65,45.93,30.30,36.49,74.83)
+ opencalais.IB1<-c(87.39,51.38,25.13,41.08,73.07)
+ opencalais.IB1_nerdtype<-c(87.52,51.18,39.58,21.36,76.62)
+opencalais.IB1_uritype_first<-c(87.39,51.38,25.13,41.08,73.07)
+
+ textrazor.NaiveBayes_nerdtype<-c(88.76,42.11,37.39,14.17,74.26)
+ textrazor.NaiveBayes_uritype<-c(87.67,47.93,42.52,20.45,76.30)
+ textrazor.NaiveBayes_uritype_first<-c(83.06,43.35,40.88,19.92,72.94)
+ textrazor.NaiveBayes_uritype_second<-c(87.80,47.67,43.64,21.13,76.66)
+ textrazor.NaiveBayes_uritype_third<-c(87.82,47.80,43.07,22.56,76.57)
+
+ textrazor.IB1_nerdtype<-c(87.36,23.94,38.21,20.11,69.16)
+ textrazor.IB1_uritype<-c(87.56,43.24,35.38,24.53,72.20)
+ textrazor.IB1_uritype_first<-c(84.57,42.13,38.61,24.50,73.24)
+ textrazor.IB1_uritype_second<-c(88.51,41.40,33.25,24.78,73.02)
+ textrazor.IB1_uritype_third<-c(88.34,41.98,35.36,25.27,72.85)
+
+ zemanta.NaiveBayes_nerdtype<-c(63.50,46.22,17.46,0.00,52.07)
+ zemanta.NaiveBayes_uritype<-c(63.85,43.59,34.36,27.22,56.33)
+
+ zemanta.IB1_nerdtype<-c(77.98,48.23,38.62,18.28,67.26)
+ zemanta.IB1_uritype<-c(78.08,45.85,42.21,20.76,67.25)
+ 
+
+
+pdf("MSMalchemyapiF.pdf")
+alchemyapi<-rbind(alchemyapi.IB1_nerdtype,alchemyapi.IB1_uritype,alchemyapi.NaiveBayes.nerdtype,alchemyapi.NaiveBayes_uritype)
+barplot(alchemyapi,xlab="F-Measure alchemyapi", beside = TRUE, ylim = c(0, 100), names.arg=c("PER","ORG","LOC","MISC","Overall"), col=c("gray", "deepskyblue2","peachpuff4","green"))
+dev.off()
+
+pdf("MSMdatatxtF.pdf")
+datatxt<-rbind(datatxt.IB1_nerdtype,datatxt.IB1_uritype,datatxt.IB1_uritype_first,datatxt.IB1_uritype_second,datatxt.IB1_uritype_third,datatxt.NaiveBayes_nerdtype,datatxt.NaiveBayes_uritype,datatxt.NaiveBayes_uritype_first,datatxt.NaiveBayes_uritype_second,datatxt.NaiveBayes_uritype_third)
+barplot(datatxt,xlab="F-Measure datatxt", beside = TRUE, ylim = c(0, 100), names.arg=c("PER","ORG","LOC","MISC","Overall"), col=c("gray", "deepskyblue2","cornflowerblue","blue","navy","peachpuff4","green","seagreen","forestgreen","darkgreen"))
+dev.off()
+
+
+pdf("MSMdbspotlightF.pdf")
+dbspotlight<-rbind(dbspotlight.IB1_nerdtype,dbspotlight.IB1_uritype,dbspotlight.IB1_uritype_first,dbspotlight.IB1_uritype_second,dbspotlight.IB1_uritype_third,dbspotlight.NaiveBayes_nerdtype,dbspotlight.NaiveBayes_uritype,dbspotlight.NaiveBayes_uritype_first,dbspotlight.NaiveBayes_uritype_second,dbspotlight.NaiveBayes_uritype_third)
+barplot(dbspotlight,xlab="F-Measure dbspotlight", beside = TRUE, ylim = c(0, 100), names.arg=c("PER","ORG","LOC","MISC","Overall"), col=c("gray", "deepskyblue2","cornflowerblue","blue","navy","peachpuff4","green","seagreen","forestgreen","darkgreen"))
+dev.off()
+
+
+
+pdf("MSMlupediaF.pdf")
+lupedia<-rbind(lupedia.IB1_nerdtype,lupedia.IB1_uritype,lupedia.IB1_uritype_first,lupedia.IB1_uritype_second,lupedia.IB1_uritype_third,lupedia.NaiveBayes_nerdtype,lupedia.NaiveBayes_uritype,lupedia.NaiveBayes_uritype_first,lupedia.NaiveBayes_uritype_second,lupedia.NaiveBayes_uritype_third)
+barplot(lupedia,xlab="F-Measure lupedia", beside = TRUE, ylim = c(0, 100), names.arg=c("PER","ORG","LOC","MISC","Overall"), col=c("gray",  "deepskyblue2","cornflowerblue","blue","navy","peachpuff4","green","seagreen","forestgreen","darkgreen"))
+dev.off()
+
+
+pdf("MSMopencalaisF.pdf")
+opencalais<-rbind(opencalais.IB1_nerdtype,opencalais.IB1_uritype_first,opencalais.NaiveBayes_nerdtype,opencalais.NaiveBayes_uritype_first)
+barplot(opencalais,xlab="F-Measure opencalais", beside = TRUE, ylim = c(0, 100), names.arg=c("PER","ORG","LOC","MISC","Overall"), col=c("gray",  "deepskyblue","peachpuff4","green"))
+dev.off()
+
+
+pdf("MSMtextrazorF.pdf")
+textrazor<-rbind(textrazor.IB1_nerdtype,textrazor.IB1_uritype,textrazor.IB1_uritype_first,textrazor.IB1_uritype_second,textrazor.IB1_uritype_third,textrazor.NaiveBayes_nerdtype,textrazor.NaiveBayes_uritype,textrazor.NaiveBayes_uritype_first,textrazor.NaiveBayes_uritype_second,textrazor.NaiveBayes_uritype_third)
+barplot(textrazor,xlab="F-Measure textrazor", beside = TRUE, ylim = c(0, 100), names.arg=c("PER","ORG","LOC","MISC","Overall"), col=c("gray", "deepskyblue2","cornflowerblue","blue","navy","peachpuff4","green","seagreen","forestgreen","darkgreen"))
+dev.off()
+
+pdf("MSMzemantaF.pdf")
+zemanta<-rbind(zemanta.IB1_nerdtype,zemanta.IB1_uritype,zemanta.NaiveBayes_nerdtype,zemanta.NaiveBayes_uritype)
+barplot(zemanta, xlab="F-Measure zemanta", beside = TRUE, ylim = c(0, 100), names.arg=c("PER","ORG","LOC","MISC","Overall"), col=c("gray", "deepskyblue2","peachpuff4","green"))
+dev.off()
+
+pdf("MSMlegend.pdf")
+plot.new() 
+legend("center", "groups", legend=c("NerdType IB1", "URIType IB1", "URIType First IB1", "URIType second IB1", "URIType Third IB1", "NerdType NaiveBayes", "URIType NaiveBayes", "URIType First NaiveBayes", "URIType second NaiveBayes", "URIType Third NaiveBayes"), lwd=c(3.5,3.5), col=c("gray", "deepskyblue2","cornflowerblue","blue","navy","peachpuff4","green","seagreen","forestgreen","darkgreen"))
+dev.off()
