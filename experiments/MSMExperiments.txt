@@ -1,0 +1,1199 @@
+######
+## MSM experiments 
+######
+
+# First generate CSV files using the script "createCSVforWekaFromCoNLL.pl" 
+
+cd msm2013/train 
+
+marieke@George:~/Dropbox/ISWC2014/msm2013/train$ for x in *conll ; do perl ../../WekaExperiments/createCSVforWekaFromCoNLL.pl $x > ../../WekaExperiments/msm2013/${x%.conll}.train.csv ; done 
+
+marieke@George:~/Dropbox/ISWC2014/msm2013/test$ for x in *conll ; do perl ../../WekaExperiments/createCSVforWekaFromCoNLL.pl $x > ../../WekaExperiments/msm2013/${x%.conll}.test.csv ; done 
+
+cd conll2003/train 
+
+marieke@George:~/Dropbox/ISWC2014/conll2003$ for x in *conll ; do perl ../../WekaExperiments/createCSVforWekaFromCoNLL.pl $x > ../../WekaExperiments/conll2003/${x%.conll}.train.csv ; done 
+
+marieke@George:~/Dropbox/ISWC2014/conll2003/test$ for x in *conll ; do perl ../../WekaExperiments/createCSVforWekaFromCoNLL.pl $x > ../../WekaExperiments/conll2003/${x%.conll}.test.csv ; done 
+
+
+
+cd ../../WekaExperiments/msm2013 
+
+cat alchemyapi.train.csv alchemyapi.test.csv > alchemyapi.full_for_arff_header.csv
+cat lupedia.train.csv lupedia.test.csv > lupedia.full_for_arff_header.csv 
+cat opencalais.train.csv opencalais.test.csv > opencalais.full_for_arff_header.csv
+
+# New experiments 
+cat alchemyapi_nerdtype.test.csv alchemyapi_nerdtype.train.csv > alchemyapi_nerdtype.full_for_arff_header.csv
+cat alchemyapi_uritype.test.csv alchemyapi_uritype.train.csv > alchemyapi_uritype.full_for_arff_header.csv
+cat alchemyapi_uritype_first.test.csv alchemyapi_uritype_first.train.csv > alchemyapi_uritype_first.full_for_arff_header.csv
+cat datatxt.test.csv datatxt.train.csv > datatxt.full_for_arff_header.csv 
+cat datatxt_nerdtype.test.csv datatxt_nerdtype.train.csv > datatxt_nerdtype.full_for_arff_header.csv
+cat datatxt_uritype.test.csv datatxt_uritype.train.csv > datatxt_uritype.full_for_arff_header.csv
+cat datatxt_uritype_first.test.csv datatxt_uritype_first.train.csv > datatxt_uritype_first.full_for_arff_header.csv
+cat datatxt_uritype_second.test.csv datatxt_uritype_second.train.csv > datatxt_uritype_second.full_for_arff_header.csv
+cat datatxt_uritype_third.test.csv datatxt_uritype_third.train.csv > datatxt_uritype_third.full_for_arff_header.csv
+cat dbspotlight.test.csv dbspotlight.train.csv > dbspotlight.full_for_arff_header.csv
+cat dbspotlight_nerdtype.test.csv dbspotlight_nerdtype.train.csv > dbspotlight_nerdtype.full_for_arff_header.csv
+cat dbspotlight_uritype.test.csv dbspotlight_uritype.train.csv >  dbspotlight_uritype.full_for_arff_header.csv
+cat dbspotlight_uritype_first.test.csv dbspotlight_uritype_first.train.csv > dbspotlight_uritype_first.full_for_arff_header.csv
+cat dbspotlight_uritype_second.test.csv dbspotlight_uritype_second.train.csv > dbspotlight_uritype_second.full_for_arff_header.csv
+cat dbspotlight_uritype_third.test.csv dbspotlight_uritype_third.train.csv > dbspotlight_uritype_third.full_for_arff_header.csv
+cat lupedia.test.csv lupedia.train.csv > lupedia.full_for_arff_header.csv
+cat lupedia_nerdtype.test.csv lupedia_nerdtype.train.csv > lupedia_nerdtype.full_for_arff_header.csv
+cat lupedia_uritype.test.csv lupedia_uritype.train.csv > lupedia_uritype.full_for_arff_header.csv
+cat lupedia_uritype_first.test.csv lupedia_uritype_first.train.csv > lupedia_uritype_first.full_for_arff_header.csv
+cat lupedia_uritype_second.test.csv lupedia_uritype_second.train.csv > lupedia_uritype_second.full_for_arff_header.csv
+cat lupedia_uritype_third.test.csv lupedia_uritype_third.train.csv > lupedia_uritype_third.full_for_arff_header.csv
+cat opencalais.test.csv opencalais.train.csv > opencalais.full_for_arff_header.csv
+cat opencalais_nerdtype.test.csv opencalais_nerdtype.train.csv > opencalais_nerdtype.full_for_arff_header.csv
+cat opencalais_uritype.test.csv opencalais_uritype.train.csv > opencalais_uritype.full_for_arff_header.csv 
+cat opencalais_uritype_first.test.csv opencalais_uritype_first.train.csv > opencalais_uritype_first.full_for_arff_header.csv
+cat textrazor.test.csv textrazor.train.csv > textrazor.full_for_arff_header.csv
+cat textrazor_nerdtype.test.csv textrazor_nerdtype.train.csv > textrazor_nerdtype.full_for_arff_header.csv
+cat textrazor_uritype.test.csv textrazor_uritype.train.csv > textrazor_uritype.full_for_arff_header.csv
+cat textrazor_uritype_first.test.csv textrazor_uritype_first.train.csv > textrazor_uritype_first.full_for_arff_header.csv
+cat textrazor_uritype_second.test.csv textrazor_uritype_second.train.csv > textrazor_uritype_second.full_for_arff_header.csv
+cat textrazor_uritype_third.test.csv textrazor_uritype_third.train.csv > textrazor_uritype_third.full_for_arff_header.csv
+cat zemanta.test.csv zemanta.train.csv > zemanta.full_for_arff_header.csv
+cat zemanta_nerdtype.test.csv zemanta_nerdtype.train.csv > zemanta_nerdtype.full_for_arff_header.csv
+cat zemanta_uritype.test.csv zemanta_uritype.train.csv > zemanta_uritype.full_for_arff_header.csv
+
+## Make sure the system knows where to find weka 
+export CLASSPATH=$CLASSPATH/Applications/weka-3-6-10/weka.jar
+
+## Generate the complete header for Weka: 
+java weka.core.converters.CSVLoader alchemyapi.full_for_arff_header.csv > alchemyapi.full_for_arff_header.arff 
+java weka.core.converters.CSVLoader opencalais.full_for_arff_header.csv > opencalais.full_for_arff_header.arff
+java weka.core.converters.CSVLoader datatxt_uritype_third.full_for_arff_header.csv > datatxt_uritype_third.full_for_arff_header.arff
+java weka.core.converters.CSVLoader datatxt_uritype_second.full_for_arff_header.csv > datatxt_uritype_second.full_for_arff_header.arff
+java weka.core.converters.CSVLoader datatxt_uritype_first.full_for_arff_header.csv > datatxt_uritype_first.full_for_arff_header.arff
+java weka.core.converters.CSVLoader datatxt_uritype.full_for_arff_header.csv > datatxt_uritype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader datatxt_nerdtype.full_for_arff_header.csv > datatxt_nerdtype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader datatxt.full_for_arff_header.csv > datatxt.full_for_arff_header.arff
+java weka.core.converters.CSVLoader alchemyapi_uritype_first.full_for_arff_header.csv > alchemyapi_uritype_first.full_for_arff_header.arff
+java weka.core.converters.CSVLoader alchemyapi_uritype.full_for_arff_header.csv > alchemyapi_uritype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader alchemyapi_nerdtype.full_for_arff_header.csv > alchemyapi_nerdtype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_third.full_for_arff_header.csv > dbspotlight_uritype_third.full_for_arff_header.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_second.full_for_arff_header.csv > dbspotlight_uritype_second.full_for_arff_header.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_first.full_for_arff_header.csv > dbspotlight_uritype_first.full_for_arff_header.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype.full_for_arff_header.csv > dbspotlight_uritype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader dbspotlight_nerdtype.full_for_arff_header.csv > dbspotlight_nerdtype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader dbspotlight.full_for_arff_header.csv > dbspotlight.full_for_arff_header.arff
+java weka.core.converters.CSVLoader lupedia_uritype_third.full_for_arff_header.csv > lupedia_uritype_third.full_for_arff_header.arff
+java weka.core.converters.CSVLoader lupedia_uritype_second.full_for_arff_header.csv > lupedia_uritype_second.full_for_arff_header.arff
+java weka.core.converters.CSVLoader lupedia_uritype_first.full_for_arff_header.csv > lupedia_uritype_first.full_for_arff_header.arff
+java weka.core.converters.CSVLoader lupedia_nerdtype.full_for_arff_header.csv > lupedia_nerdtype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader lupedia.full_for_arff_header.csv > lupedia.full_for_arff_header.arff
+java weka.core.converters.CSVLoader lupedia_uritype.full_for_arff_header.csv > lupedia_uritype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader zemanta_uritype.full_for_arff_header.csv > zemanta_uritype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader zemanta_nerdtype.full_for_arff_header.csv > zemanta_nerdtype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader zemanta.full_for_arff_header.csv > zemanta.full_for_arff_header.arff
+java weka.core.converters.CSVLoader textrazor_uritype_third.full_for_arff_header.csv > textrazor_uritype_third.full_for_arff_header.arff
+java weka.core.converters.CSVLoader textrazor_uritype_second.full_for_arff_header.csv > textrazor_uritype_second.full_for_arff_header.arff
+java weka.core.converters.CSVLoader textrazor_uritype_first.full_for_arff_header.csv > textrazor_uritype_first.full_for_arff_header.arff
+java weka.core.converters.CSVLoader textrazor_uritype.full_for_arff_header.csv > textrazor_uritype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader textrazor_nerdtype.full_for_arff_header.csv > textrazor_nerdtype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader textrazor.full_for_arff_header.csv > textrazor.full_for_arff_header.arff
+java weka.core.converters.CSVLoader opencalais_uritype_first.full_for_arff_header.csv > opencalais_uritype_first.full_for_arff_header.arff
+java weka.core.converters.CSVLoader opencalais_uritype.full_for_arff_header.csv > opencalais_uritype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader opencalais_nerdtype.full_for_arff_header.csv > opencalais_nerdtype.full_for_arff_header.arff
+java weka.core.converters.CSVLoader opencalais.full_for_arff_header.csv > opencalais.full_for_arff_header.arff
+ 
+ 
+## get header from full arff file: 
+head -n8 < lupedia_uritype_third.full_for_arff_header.arff > lupedia_uritype_third.arff_header.txt
+head -n8 < lupedia_uritype_second.full_for_arff_header.arff > lupedia_uritype_second.arff_header.txt
+head -n8 < lupedia_uritype_first.full_for_arff_header.arff > lupedia_uritype_first.arff_header.txt
+head -n8 < lupedia.full_for_arff_header.arff > lupedia.arff_header.txt
+head -n8 < lupedia_nerdtype.full_for_arff_header.arff >  lupedia_nerdtype.arff_header.txt
+head -n8 < zemanta_uritype.full_for_arff_header.arff > zemanta_uritype.arff_header.txt
+head -n8 < zemanta_nerdtype.full_for_arff_header.arff > zemanta_nerdtype.arff_header.txt
+head -n8 < zemanta.full_for_arff_header.arff > zemanta.arff_header.txt
+head -n8 < textrazor_uritype_third.full_for_arff_header.arff > textrazor_uritype_third.arff_header.txt
+head -n8 < textrazor_uritype_second.full_for_arff_header.arff > textrazor_uritype_second.arff_header.txt
+head -n8 < textrazor_uritype_first.full_for_arff_header.arff > textrazor_uritype_first.arff_header.txt
+head -n8 < textrazor.full_for_arff_header.arff > textrazor.arff_header.txt
+head -n8 < textrazor_nerdtype.full_for_arff_header.arff > textrazor_nerdtype.arff_header.txt
+head -n8 < textrazor_uritype.full_for_arff_header.arff > textrazor_uritype.arff_header.txt
+head -n8 < opencalais_uritype_first.full_for_arff_header.arff > opencalais_uritype_first.arff_header.txt
+head -n8 < opencalais_uritype.full_for_arff_header.arff >  opencalais_uritype.arff_header.txt
+head -n8 < opencalais_nerdtype.full_for_arff_header.arff > opencalais_nerdtype.arff_header.txt
+head -n8 < opencalais.full_for_arff_header.arff >  opencalais.arff_header.txt
+head -n8 < alchemyapi.full_for_arff_header.arff > alchemyapi.arff_header.txt
+head -n8 < opencalais.full_for_arff_header.arff > opencalais.arff_header.txt
+head -n8 < datatxt.full_for_arff_header.arff > datatxt.arff_header.txt
+head -n8 < datatxt_uritype_third.full_for_arff_header.arff > datatxt_uritype_third.arff_header.txt
+head -n8 < datatxt_uritype_second.full_for_arff_header.arff > datatxt_uritype_second.arff_header.txt
+head -n8 < datatxt_uritype_first.full_for_arff_header.arff > datatxt_uritype_first.arff_header.txt
+head -n8 < alchemyapi_uritype_first.full_for_arff_header.arff > alchemyapi_uritype_first.arff_header.txt
+head -n8 < datatxt_uritype.full_for_arff_header.arff > datatxt_uritype.arff_header.txt
+head -n8 < datatxt_nerdtype.full_for_arff_header.arff > datatxt_nerdtype.arff_header.txt
+head -n8 < alchemyapi_uritype.full_for_arff_header.arff > alchemyapi_uritype.arff_header.txt
+head -n8 < alchemyapi_nerdtype.full_for_arff_header.arff > alchemyapi_nerdtype.arff_header.txt
+head -n8 < dbspotlight_uritype_third.full_for_arff_header.arff > dbspotlight_uritype_third.arff_header.txt
+head -n8 < dbspotlight_uritype_second.full_for_arff_header.arff > dbspotlight_uritype_second.arff_header.txt
+head -n8 < dbspotlight_uritype.full_for_arff_header.arff > dbspotlight_uritype.arff_header.txt
+head -n8 < dbspotlight_nerdtype.full_for_arff_header.arff > dbspotlight_nerdtype.arff_header.txt
+head -n8 < dbspotlight.full_for_arff_header.arff > dbspotlight.arff_header.txt
+head -n8 < dbspotlight_uritype_first.full_for_arff_header.arff > dbspotlight_uritype_first.arff_header.txt
+
+#generate arff files from the test and training files without header (data starts at line 8) 
+java weka.core.converters.CSVLoader alchemyapi.test.csv | sed -n '8,$p' > alchemyapi.test.tmp.arff
+java weka.core.converters.CSVLoader alchemyapi.train.csv | sed -n '8,$p' >alchemyapi.train.tmp.arff
+java weka.core.converters.CSVLoader opencalais.test.csv | sed -n '8,$p' > opencalais.test.tmp.arff
+java weka.core.converters.CSVLoader opencalais.train.csv | sed -n '8,$p' > opencalais.train.tmp.arff
+
+java weka.core.converters.CSVLoader alchemyapi_nerdtype.train.csv| sed -n '8,$p' > alchemyapi_nerdtype.train.tmp.arff
+java weka.core.converters.CSVLoader alchemyapi_uritype.train.csv| sed -n '8,$p' > alchemyapi_uritype.train.tmp.arff
+java weka.core.converters.CSVLoader alchemyapi_uritype_first.train.csv| sed -n '8,$p' > alchemyapi_uritype_first.train.tmp.arff 
+java weka.core.converters.CSVLoader datatxt.train.csv| sed -n '8,$p' > datatxt.train.tmp.arff
+java weka.core.converters.CSVLoader datatxt_nerdtype.train.csv| sed -n '8,$p' > datatxt_nerdtype.train.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype.train.csv| sed -n '8,$p' > datatxt_uritype.train.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype_first.train.csv| sed -n '8,$p' > datatxt_uritype_first.train.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype_second.train.csv| sed -n '8,$p' > datatxt_uritype_second.train.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype_third.train.csv| sed -n '8,$p' > datatxt_uritype_third.train.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight.train.csv| sed -n '8,$p' > dbspotlight.train.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_nerdtype.train.csv| sed -n '8,$p' > dbspotlight_nerdtype.train.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype.train.csv| sed -n '8,$p' > dbspotlight_uritype.train.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_first.train.csv| sed -n '8,$p' > dbspotlight_uritype_first.train.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_second.train.csv| sed -n '8,$p' > dbspotlight_uritype_second.train.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_third.train.csv| sed -n '8,$p' > dbspotlight_uritype_third.train.tmp.arff
+java weka.core.converters.CSVLoader lupedia.train.csv| sed -n '8,$p' > lupedia.train.tmp.arff
+java weka.core.converters.CSVLoader lupedia_nerdtype.train.csv| sed -n '8,$p' > lupedia_nerdtype.train.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype.train.csv| sed -n '8,$p' > lupedia_uritype.train.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype_first.train.csv| sed -n '8,$p' > lupedia_uritype_first.train.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype_second.train.csv| sed -n '8,$p' > lupedia_uritype_second.train.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype_third.train.csv| sed -n '8,$p' > lupedia_uritype_third.train.tmp.arff
+java weka.core.converters.CSVLoader opencalais_nerdtype.train.csv| sed -n '8,$p' > opencalais_nerdtype.train.tmp.arff
+java weka.core.converters.CSVLoader opencalais_uritype.train.csv| sed -n '8,$p' > opencalais_uritype.train.tmp.arff
+java weka.core.converters.CSVLoader opencalais_uritype_first.train.csv| sed -n '8,$p' > opencalais_uritype_first.train.tmp.arff
+java weka.core.converters.CSVLoader textrazor.train.csv| sed -n '8,$p' > textrazor.train.tmp.arff
+java weka.core.converters.CSVLoader textrazor_nerdtype.train.csv| sed -n '8,$p' > textrazor_nerdtype.train.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype.train.csv| sed -n '8,$p' >  textrazor_uritype.train.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype_first.train.csv| sed -n '8,$p' > textrazor_uritype_first.train.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype_second.train.csv| sed -n '8,$p' > textrazor_uritype_second.train.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype_third.train.csv| sed -n '8,$p' > textrazor_uritype_third.train.tmp.arff
+java weka.core.converters.CSVLoader zemanta.train.csv| sed -n '8,$p' > zemanta.train.tmp.arff
+java weka.core.converters.CSVLoader zemanta_nerdtype.train.csv| sed -n '8,$p' > zemanta_nerdtype.train.tmp.arff
+java weka.core.converters.CSVLoader zemanta_uritype.train.csv| sed -n '8,$p' > zemanta_uritype.train.tmp.arff
+java weka.core.converters.CSVLoader alchemyapi_nerdtype.test.csv | sed -n '8,$p' > alchemyapi_nerdtype.test.tmp.arff
+java weka.core.converters.CSVLoader alchemyapi_uritype.test.csv | sed -n '8,$p' > alchemyapi_uritype.test.tmp.arff
+java weka.core.converters.CSVLoader alchemyapi_uritype_first.test.csv | sed -n '8,$p' > alchemyapi_uritype_first.test.tmp.arff
+java weka.core.converters.CSVLoader datatxt.test.csv | sed -n '8,$p' > datatxt.test.tmp.arff
+java weka.core.converters.CSVLoader datatxt_nerdtype.test.csv | sed -n '8,$p' > datatxt_nerdtype.test.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype.test.csv | sed -n '8,$p' > datatxt_uritype.test.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype_first.test.csv | sed -n '8,$p' > datatxt_uritype_first.test.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype_second.test.csv | sed -n '8,$p' > datatxt_uritype_second.test.tmp.arff
+java weka.core.converters.CSVLoader datatxt_uritype_third.test.csv | sed -n '8,$p' > datatxt_uritype_third.test.tmp.arff
+java weka.core.converters.CSVLoader dbpedia_uritype_first.test.csv | sed -n '8,$p' > dbpedia_uritype_first.test.tmp.arff
+java weka.core.converters.CSVLoader dbpedia_uritype_second.test.csv | sed -n '8,$p' > dbpedia_uritype_second.test.tmp.arff
+java weka.core.converters.CSVLoader dbpedia_uritype_third.test.csv | sed -n '8,$p' > dbpedia_uritype_third.test.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight.test.csv | sed -n '8,$p' > dbspotlight.test.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_nerdtype.test.csv | sed -n '8,$p' > dbspotlight_nerdtype.test.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype.test.csv | sed -n '8,$p' > dbspotlight_uritype.test.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_first.test.csv | sed -n '8,$p' > dbspotlight_uritype_first.test.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_second.test.csv | sed -n '8,$p' > dbspotlight_uritype_second.test.tmp.arff
+java weka.core.converters.CSVLoader dbspotlight_uritype_third.test.csv | sed -n '8,$p' > dbspotlight_uritype_third.test.tmp.arff
+java weka.core.converters.CSVLoader lupedia.test.csv | sed -n '8,$p' > lupedia.test.tmp.arff
+java weka.core.converters.CSVLoader lupedia_nerdtype.test.csv | sed -n '8,$p' > lupedia_nerdtype.test.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype.test.csv | sed -n '8,$p' > lupedia_uritype.test.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype_first.test.csv | sed -n '8,$p' > lupedia_uritype_first.test.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype_second.test.csv | sed -n '8,$p' > lupedia_uritype_second.test.tmp.arff
+java weka.core.converters.CSVLoader lupedia_uritype_third.test.csv | sed -n '8,$p' > lupedia_uritype_third.test.tmp.arff
+java weka.core.converters.CSVLoader opencalais.test.csv | sed -n '8,$p' > opencalais.test.tmp.arff
+java weka.core.converters.CSVLoader opencalais_nerdtype.test.csv | sed -n '8,$p' > opencalais_nerdtype.test.tmp.arff
+java weka.core.converters.CSVLoader opencalais_uritype.test.csv | sed -n '8,$p' > opencalais_uritype.test.tmp.arff
+java weka.core.converters.CSVLoader opencalais_uritype_first.test.csv | sed -n '8,$p' > opencalais_uritype_first.test.tmp.arff
+java weka.core.converters.CSVLoader textrazor.test.csv | sed -n '8,$p' > textrazor.test.tmp.arff
+java weka.core.converters.CSVLoader textrazor_nerdtype.test.csv | sed -n '8,$p' > textrazor_nerdtype.test.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype.test.csv | sed -n '8,$p' > textrazor_uritype.test.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype_first.test.csv | sed -n '8,$p' > textrazor_uritype_first.test.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype_second.test.csv | sed -n '8,$p' > textrazor_uritype_second.test.tmp.arff
+java weka.core.converters.CSVLoader textrazor_uritype_third.test.csv | sed -n '8,$p' > textrazor_uritype_third.test.tmp.arff
+java weka.core.converters.CSVLoader zemanta.test.csv | sed -n '8,$p' > zemanta.test.tmp.arff
+java weka.core.converters.CSVLoader zemanta_nerdtype.test.csv | sed -n '8,$p' > zemanta_nerdtype.test.tmp.arff
+java weka.core.converters.CSVLoader zemanta_uritype.test.csv | sed -n '8,$p' > zemanta_uritype.test.tmp.arff
+
+
+# Copy the header from the full arff file over to the test file. 
+cat  alchemyapi.arff_header.txt alchemyapi.test.tmp.arff > alchemyapi.test.arff
+cat  alchemyapi.arff_header.txt alchemyapi.train.tmp.arff > alchemyapi.train.arff
+cat opencalais.arff_header.txt opencalais.test.tmp.arff > opencalais.test.arff
+cat opencalais.arff_header.txt opencalais.train.tmp.arff > opencalais.train.arff
+
+cat alchemyapi_nerdtype.arff_header.txt alchemyapi_nerdtype.train.tmp.arff > alchemyapi_nerdtype.train.arff
+cat alchemyapi_nerdtype.arff_header.txt alchemyapi_nerdtype.test.tmp.arff > alchemyapi_nerdtype.test.arff
+
+cat alchemyapi_uritype.arff_header.txt alchemyapi_uritype.train.tmp.arff > alchemyapi_uritype.train.arff
+cat alchemyapi_uritype.arff_header.txt alchemyapi_uritype.test.tmp.arff > alchemyapi_uritype.test.arff
+
+cat alchemyapi_uritype_first.arff_header.txt alchemyapi_uritype_first.test.tmp.arff > alchemyapi_uritype_first.test.arff
+cat alchemyapi_uritype_first.arff_header.txt alchemyapi_uritype_first.train.tmp.arff > alchemyapi_uritype_first.train.arff
+
+cat datatxt.arff_header.txt datatxt.test.tmp.arff > datatxt.test.arff
+cat datatxt.arff_header.txt datatxt.train.tmp.arff > datatxt.train.arff
+
+cat datatxt_nerdtype.arff_header.txt datatxt_nerdtype.test.tmp.arff > datatxt_nerdtype.test.arff
+cat datatxt_nerdtype.arff_header.txt datatxt_nerdtype.train.tmp.arff > datatxt_nerdtype.train.arff
+
+cat datatxt_uritype.arff_header.txt datatxt_uritype.test.tmp.arff > datatxt_uritype.test.arff
+cat datatxt_uritype.arff_header.txt datatxt_uritype.train.tmp.arff > datatxt_uritype.train.arff
+
+cat datatxt_uritype_first.arff_header.txt datatxt_uritype_first.test.tmp.arff > datatxt_uritype_first.test.arff
+cat datatxt_uritype_first.arff_header.txt datatxt_uritype_first.train.tmp.arff > datatxt_uritype_first.train.arff
+
+cat datatxt_uritype_second.arff_header.txt datatxt_uritype_second.test.tmp.arff > datatxt_uritype_second.test.arff
+cat datatxt_uritype_second.arff_header.txt datatxt_uritype_second.train.tmp.arff > datatxt_uritype_second.train.arff
+
+cat datatxt_uritype_third.arff_header.txt datatxt_uritype_third.test.tmp.arff > datatxt_uritype_third.test.arff
+cat datatxt_uritype_third.arff_header.txt datatxt_uritype_third.train.tmp.arff > datatxt_uritype_third.train.arff
+
+cat dbspotlight.arff_header.txt dbspotlight.test.tmp.arff > dbspotlight.test.arff
+cat dbspotlight.arff_header.txt dbspotlight.train.tmp.arff > dbspotlight.train.arff
+
+cat dbspotlight_nerdtype.arff_header.txt dbspotlight_nerdtype.test.tmp.arff > dbspotlight_nerdtype.test.arff
+cat dbspotlight_nerdtype.arff_header.txt dbspotlight_nerdtype.train.tmp.arff > dbspotlight_nerdtype.train.arff
+ 
+cat dbspotlight_uritype.arff_header.txt dbspotlight_uritype.test.tmp.arff > dbspotlight_uritype.test.arff
+cat dbspotlight_uritype.arff_header.txt dbspotlight_uritype.train.tmp.arff > dbspotlight_uritype.train.arff
+
+cat dbspotlight_uritype_first.arff_header.txt dbspotlight_uritype_first.test.tmp.arff > dbspotlight_uritype_first.test.arff
+cat dbspotlight_uritype_first.arff_header.txt dbspotlight_uritype_first.train.tmp.arff > dbspotlight_uritype_first.train.arff
+
+cat dbspotlight_uritype_second.arff_header.txt  dbspotlight_uritype_second.test.tmp.arff >  dbspotlight_uritype_second.test.arff
+cat dbspotlight_uritype_second.arff_header.txt  dbspotlight_uritype_second.train.tmp.arff >  dbspotlight_uritype_second.train.arff
+
+cat dbspotlight_uritype_third.arff_header.txt dbspotlight_uritype_third.test.tmp.arff > dbspotlight_uritype_third.test.arff
+cat dbspotlight_uritype_third.arff_header.txt dbspotlight_uritype_third.train.tmp.arff > dbspotlight_uritype_third.train.arff
+
+cat lupedia.arff_header.txt lupedia.test.tmp.arff > lupedia.test.arff
+cat lupedia.arff_header.txt lupedia.train.tmp.arff > lupedia.train.arff
+
+cat lupedia_nerdtype.arff_header.txt lupedia_nerdtype.test.tmp.arff > lupedia_nerdtype.test.arff
+cat lupedia_nerdtype.arff_header.txt lupedia_nerdtype.train.tmp.arff > lupedia_nerdtype.train.arff
+
+cat lupedia_uritype_first.arff_header.txt lupedia_uritype_first.test.tmp.arff > lupedia_uritype_first.test.arff
+cat lupedia_uritype_first.arff_header.txt lupedia_uritype_first.train.tmp.arff >lupedia_uritype_first.train.arff
+
+
+cat lupedia_uritype_second.arff_header.txt lupedia_uritype_second.test.tmp.arff > lupedia_uritype_second.test.arff
+cat lupedia_uritype_second.arff_header.txt lupedia_uritype_second.train.tmp.arff >lupedia_uritype_second.train.arff
+
+cat lupedia_uritype_third.arff_header.txt lupedia_uritype_third.test.tmp.arff > lupedia_uritype_third.test.arff
+cat lupedia_uritype_third.arff_header.txt lupedia_uritype_third.train.tmp.arff > lupedia_uritype_third.train.arff
+
+cat opencalais_nerdtype.arff_header.txt opencalais_nerdtype.test.tmp.arff > opencalais_nerdtype.test.arff
+cat opencalais_nerdtype.arff_header.txt opencalais_nerdtype.train.tmp.arff > opencalais_nerdtype.train.arff
+
+cat opencalais_uritype.arff_header.txt opencalais_uritype.test.tmp.arff > opencalais_uritype.test.arff
+cat opencalais_uritype.arff_header.txt opencalais_uritype.train.tmp.arff > opencalais_uritype.train.arff
+
+
+cat opencalais_uritype_first.arff_header.txt opencalais_uritype_first.test.tmp.arff > opencalais_uritype_first.test.arff
+cat opencalais_uritype_first.arff_header.txt opencalais_uritype_first.train.tmp.arff > opencalais_uritype_first.train.arff
+
+cat textrazor.arff_header.txt  textrazor.test.tmp.arff >  textrazor.test.arff
+cat textrazor.arff_header.txt  textrazor.train.tmp.arff >  textrazor.train.arff
+
+cat textrazor_uritype_first.arff_header.txt textrazor_uritype_first.test.tmp.arff > textrazor_uritype_first.test.arff
+cat textrazor_uritype_first.arff_header.txt textrazor_uritype_first.train.tmp.arff >textrazor_uritype_first.train.arff
+
+cat textrazor_uritype_second.arff_header.txt textrazor_uritype_second.test.tmp.arff > textrazor_uritype_second.test.arff
+cat textrazor_uritype_second.arff_header.txt textrazor_uritype_second.train.tmp.arff > textrazor_uritype_second.train.arff
+
+cat textrazor_uritype_third.arff_header.txt textrazor_uritype_third.test.tmp.arff > textrazor_uritype_third.test.arff
+cat textrazor_uritype_third.arff_header.txt textrazor_uritype_third.train.tmp.arff > textrazor_uritype_third.train.arff
+
+cat textrazor_uritype.arff_header.txt textrazor_uritype.test.tmp.arff > textrazor_uritype.test.arff
+cat textrazor_uritype.arff_header.txt textrazor_uritype.train.tmp.arff >textrazor_uritype.train.arff
+
+cat textrazor_nerdtype.arff_header.txt textrazor_nerdtype.test.tmp.arff > textrazor_nerdtype.test.arff
+cat textrazor_nerdtype.arff_header.txt textrazor_nerdtype.train.tmp.arff >textrazor_nerdtype.train.arff
+
+
+cat zemanta.arff_header.txt zemanta.test.tmp.arff > zemanta.test.arff
+cat zemanta.arff_header.txt zemanta.train.tmp.arff > zemanta.train.arff
+
+cat zemanta_nerdtype.arff_header.txt zemanta_nerdtype.test.tmp.arff > zemanta_nerdtype.test.arff
+cat zemanta_nerdtype.arff_header.txt zemanta_nerdtype.train.tmp.arff > zemanta_nerdtype.train.arff
+
+cat zemanta_uritype.arff_header.txt zemanta_uritype.test.tmp.arff > zemanta_uritype.test.arff
+cat zemanta_uritype.arff_header.txt zemanta_uritype.train.tmp.arff > zemanta_uritype.train.arff
+
+
+ 
+
+
+
+## Copy to server with lots of memory to run experiments 
+# eventmedia.eurecom.fr
+
+export CLASSPATH=/home/erp/weka-3-6-10/weka.jar 
+
+# IB1 experiments: 
+
+java weka.classifiers.lazy.IB1 -t alchemyapi.train.arff -T alchemyapi.test.arff -i > alchemyapi.IB1.out
+java weka.classifiers.lazy.IB1 -t opencalais.train.arff -T opencalais.test.arff -i  > opencalais.IB1.out
+
+
+# NaiveBayes 
+java -mx2g weka.classifiers.bayes.NaiveBayes -t alchemyapi.train.arff -T alchemyapi.test.arff -i > alchemyapi.NaiveBayes.out & 
+java -mx2g weka.classifiers.bayes.NaiveBayes -t opencalais.train.arff -T opencalais.test.arff -i  > opencalais.NaiveBayes.out & 
+
+# SMO
+java -mx14g weka.classifiers.functions.SMO -t alchemyapi.train.arff -T alchemyapi.test.arff -i  > alchemyapi.SMO.out & 
+java -mx8g weka.classifiers.functions.SMO -t opencalais.train.arff -T opencalais.test.arff -i  > opencalais.SMO.out & 
+ 
+
+# J48 
+java -mx6g weka.classifiers.trees.J48 -t alchemyapi.train.arff -T alchemyapi.test.arff -i > alchemyapi.j48.out  & 
+java -mx6g weka.classifiers.trees.J48 -t opencalais.train.arff -T opencalais.test.arff -i  > opencalais.j48.out & 
+
+
+
+
+########### 
+# Experiments with Weka that output the predictions and evaluate using the conlleval script
+##########
+
+#######
+# AlchemyApi
+#######
+
+# run weka + output predictions and attributes 
+java weka.classifiers.lazy.IB1 -t alchemyapi.train.arff -T alchemyapi.test.arff -p 1,2 > alchemyapi.IB1.predictions.txt
+
+# convert weka output to conll input 
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi.IB1.predictions.txt > alchemyapi.IB1.predictions.conll.txt
+
+# run evaluation script 
+perl ../conlleval.pl -r < alchemyapi.IB1.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 2512 phrases; correct: 1977.
+accuracy:  96.13%; precision:  78.70%; recall:  72.82%; FB1:  75.65
+            I-LOC: precision:  30.36%; recall:  63.91%; FB1:  41.16  280
+           I-MISC: precision:  18.33%; recall:  15.00%; FB1:  16.50  180
+            I-ORG: precision:  57.75%; recall:  37.50%; FB1:  45.47  213
+            I-PER: precision:  94.40%; recall:  85.35%; FB1:  89.65  1839
+            
+
+java weka.classifiers.lazy.IB1 -t alchemyapi_uritype_first.train.arff -T alchemyapi_uritype_first.test.arff -p 1,2 > alchemyapi_uritype_first.IB1.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi_uritype_first.IB1.predictions.txt > alchemyapi_uritype_first.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < alchemyapi_uritype_first.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2512 phrases; correct: 1977.
+accuracy:  96.13%; precision:  78.70%; recall:  72.82%; FB1:  75.65
+            I-LOC: precision:  30.36%; recall:  63.91%; FB1:  41.16  280
+           I-MISC: precision:  18.33%; recall:  15.00%; FB1:  16.50  180
+            I-ORG: precision:  57.75%; recall:  37.50%; FB1:  45.47  213
+            I-PER: precision:  94.40%; recall:  85.35%; FB1:  89.65  1839
+
+
+java weka.classifiers.lazy.IB1 -t alchemyapi_uritype.train.arff -T alchemyapi_uritype.test.arff -p 1,2 > alchemyapi_uritype.IB1.predictions.txt  
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi_uritype.IB1.predictions.txt > alchemyapi_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < alchemyapi_uritype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2512 phrases; correct: 1977.
+accuracy:  96.13%; precision:  78.70%; recall:  72.82%; FB1:  75.65
+            I-LOC: precision:  30.36%; recall:  63.91%; FB1:  41.16  280
+           I-MISC: precision:  18.33%; recall:  15.00%; FB1:  16.50  180
+            I-ORG: precision:  57.75%; recall:  37.50%; FB1:  45.47  213
+            I-PER: precision:  94.40%; recall:  85.35%; FB1:  89.65  1839
+
+java weka.classifiers.lazy.IB1 -t alchemyapi_nerdtype.train.arff -T alchemyapi_nerdtype.test.arff -p 1,2 > alchemyapi_nerdtype.IB1.predictions.txt   
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi_nerdtype.IB1.predictions.txt > alchemyapi_nerdtype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < alchemyapi_nerdtype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2424 phrases; correct: 1942.
+accuracy:  96.14%; precision:  80.12%; recall:  71.53%; FB1:  75.58
+            I-LOC: precision:  30.47%; recall:  63.91%; FB1:  41.26  279
+           I-MISC: precision:  21.68%; recall:  14.09%; FB1:  17.08  143
+            I-ORG: precision:  55.62%; recall:  27.13%; FB1:  36.48  160
+            I-PER: precision:  94.30%; recall:  85.40%; FB1:  89.63  1842
+
+
+java -Xmx4g weka.classifiers.bayes.NaiveBayes -t alchemyapi.train.arff -T alchemyapi.test.arff -p 1,2 > alchemyapi.NaiveBayes.predictions.txt            
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi.NaiveBayes.predictions.txt > alchemyapi.NaiveBayes.predictions.conll.txt           
+perl ../conlleval.pl -r < alchemyapi.NaiveBayes.predictions.conll.txt            
+processed 29089 tokens with 2715 phrases; found: 2270 phrases; correct: 2018.
+accuracy:  97.10%; precision:  88.90%; recall:  74.33%; FB1:  80.96
+            I-LOC: precision:  52.60%; recall:  60.90%; FB1:  56.45  154
+           I-MISC: precision:  68.42%; recall:   5.91%; FB1:  10.88  19
+            I-ORG: precision:  61.64%; recall:  41.16%; FB1:  49.36  219
+            I-PER: precision:  95.26%; recall:  87.95%; FB1:  91.46  1878
+         
+         
+java weka.classifiers.bayes.NaiveBayes -t alchemyapi_uritype_first.train.arff -T alchemyapi_uritype_first.test.arff -p 1,2 > alchemyapi_uritype_first.NaiveBayes.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi_uritype_first.NaiveBayes.predictions.txt > alchemyapi_uritype_first.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < alchemyapi_uritype_first.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2270 phrases; correct: 2018.
+accuracy:  97.10%; precision:  88.90%; recall:  74.33%; FB1:  80.96
+            I-LOC: precision:  52.60%; recall:  60.90%; FB1:  56.45  154
+           I-MISC: precision:  68.42%; recall:   5.91%; FB1:  10.88  19
+            I-ORG: precision:  61.64%; recall:  41.16%; FB1:  49.36  219
+            I-PER: precision:  95.26%; recall:  87.95%; FB1:  91.46  1878
+
+
+java weka.classifiers.bayes.NaiveBayes -t alchemyapi_uritype.train.arff -T alchemyapi_uritype.test.arff -p 1,2 > alchemyapi_uritype.NaiveBayes.predictions.txt  
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi_uritype.NaiveBayes.predictions.txt > alchemyapi_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < alchemyapi_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2270 phrases; correct: 2018.
+accuracy:  97.10%; precision:  88.90%; recall:  74.33%; FB1:  80.96
+            I-LOC: precision:  52.60%; recall:  60.90%; FB1:  56.45  154
+           I-MISC: precision:  68.42%; recall:   5.91%; FB1:  10.88  19
+            I-ORG: precision:  61.64%; recall:  41.16%; FB1:  49.36  219
+            I-PER: precision:  95.26%; recall:  87.95%; FB1:  91.46  1878
+
+
+java weka.classifiers.bayes.NaiveBayes -t alchemyapi_nerdtype.train.arff -T alchemyapi_nerdtype.test.arff -p 1,2 > alchemyapi_nerdtype.NaiveBayes.predictions.txt   
+perl ../convertWekaPredictionsToCoNLL.pl alchemyapi_nerdtype.NaiveBayes.predictions.txt > alchemyapi_nerdtype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < alchemyapi_nerdtype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2240 phrases; correct: 1984.
+accuracy:  96.99%; precision:  88.57%; recall:  73.08%; FB1:  80.08
+            I-LOC: precision:  50.62%; recall:  60.90%; FB1:  55.29  160
+           I-MISC: precision:  36.36%; recall:   1.82%; FB1:   3.46  11
+            I-ORG: precision:  59.41%; recall:  36.59%; FB1:  45.28  202
+            I-PER: precision:  95.29%; recall:  87.46%; FB1:  91.21  1867
+            
+##############
+# DBspotlight 
+##############            
+  
+java weka.classifiers.bayes.NaiveBayes -t dbspotlight.train.arff -T dbspotlight.test.arff -p 1,2 > dbspotlight.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight.NaiveBayes.predictions.txt > dbspotlight.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < dbspotlight.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2814 phrases; correct: 1556.
+accuracy:  92.47%; precision:  55.29%; recall:  57.31%; FB1:  56.29
+            I-LOC: precision:  57.69%; recall:  22.56%; FB1:  32.43  52
+           I-MISC: precision:  77.27%; recall:   7.73%; FB1:  14.05  22
+            I-ORG: precision:  57.25%; recall:  22.87%; FB1:  32.68  131
+            I-PER: precision:  54.96%; recall:  70.50%; FB1:  61.77  2609
+
+java weka.classifiers.bayes.NaiveBayes -t dbspotlight_nerdtype.train.arff -T dbspotlight_nerdtype.test.arff -p 1,2 > dbspotlight_nerdtype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight_nerdtype.NaiveBayes.predictions.txt > dbspotlight_nerdtype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < dbspotlight_nerdtype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1928 phrases; correct: 1547.
+accuracy:  94.90%; precision:  80.24%; recall:  56.98%; FB1:  66.64
+            I-LOC: precision:  46.00%; recall:  34.59%; FB1:  39.48  100
+           I-MISC: precision:  29.00%; recall:  13.18%; FB1:  18.12  100
+            I-ORG: precision:  42.08%; recall:  25.91%; FB1:  32.08  202
+            I-PER: precision:  90.89%; recall:  68.19%; FB1:  77.92  1526
+
+java weka.classifiers.bayes.NaiveBayes -t dbspotlight_uritype.train.arff -T dbspotlight_uritype.test.arff -p 1,2 > dbspotlight_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  dbspotlight_uritype.NaiveBayes.predictions.txt >  dbspotlight_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r <  dbspotlight_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2814 phrases; correct: 1556.
+accuracy:  92.47%; precision:  55.29%; recall:  57.31%; FB1:  56.29
+            I-LOC: precision:  57.69%; recall:  22.56%; FB1:  32.43  52
+           I-MISC: precision:  77.27%; recall:   7.73%; FB1:  14.05  22
+            I-ORG: precision:  57.25%; recall:  22.87%; FB1:  32.68  131
+            I-PER: precision:  54.96%; recall:  70.50%; FB1:  61.77  2609
+
+java weka.classifiers.bayes.NaiveBayes -t dbspotlight_uritype_first.train.arff -T dbspotlight_uritype_first.test.arff -p 1,2 > dbspotlight_uritype_first.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  dbspotlight_uritype_first.NaiveBayes.predictions.txt >  dbspotlight_uritype_first.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r <  dbspotlight_uritype_first.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2825 phrases; correct: 1556.
+accuracy:  92.43%; precision:  55.08%; recall:  57.31%; FB1:  56.17
+            I-LOC: precision:  56.60%; recall:  22.56%; FB1:  32.26  53
+           I-MISC: precision:  70.83%; recall:   7.73%; FB1:  13.93  24
+            I-ORG: precision:  53.96%; recall:  22.87%; FB1:  32.12  139
+            I-PER: precision:  54.96%; recall:  70.50%; FB1:  61.77  2609
+
+
+java weka.classifiers.bayes.NaiveBayes -t dbspotlight_uritype_second.train.arff -T dbspotlight_uritype_second.test.arff -p 1,2 > dbspotlight_uritype_second.NaiveBayes.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight_uritype_second.NaiveBayes.predictions.txt > dbspotlight_uritype_second.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < dbspotlight_uritype_second.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2825 phrases; correct: 1556.
+accuracy:  92.43%; precision:  55.08%; recall:  57.31%; FB1:  56.17
+            I-LOC: precision:  56.60%; recall:  22.56%; FB1:  32.26  53
+           I-MISC: precision:  70.83%; recall:   7.73%; FB1:  13.93  24
+            I-ORG: precision:  53.96%; recall:  22.87%; FB1:  32.12  139
+            I-PER: precision:  54.96%; recall:  70.50%; FB1:  61.77  2609
+
+java weka.classifiers.bayes.NaiveBayes -t dbspotlight_uritype_third.train.arff -T dbspotlight_uritype_third.test.arff -p 1,2 > dbspotlight_uritype_third.NaiveBayes.predictions.txt          
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight_uritype_third.NaiveBayes.predictions.txt > dbspotlight_uritype_third.NaiveBayes.predictions.conll.txt           
+perl ../conlleval.pl -r < dbspotlight_uritype_third.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2824 phrases; correct: 1556.
+accuracy:  92.43%; precision:  55.10%; recall:  57.31%; FB1:  56.18
+            I-LOC: precision:  57.69%; recall:  22.56%; FB1:  32.43  52
+           I-MISC: precision:  70.83%; recall:   7.73%; FB1:  13.93  24
+            I-ORG: precision:  53.96%; recall:  22.87%; FB1:  32.12  139
+            I-PER: precision:  54.96%; recall:  70.50%; FB1:  61.77  2609
+
+java weka.classifiers.lazy.IB1 -t dbspotlight.train.arff -T dbspotlight.test.arff -p 1,2 > dbspotlight.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight.IB1.predictions.txt > dbspotlight.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < dbspotlight.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1586 phrases; correct: 1234.
+accuracy:  94.10%; precision:  77.81%; recall:  45.45%; FB1:  57.38
+            I-LOC: precision:  38.46%; recall:  37.59%; FB1:  38.02  130
+           I-MISC: precision:  22.79%; recall:  14.09%; FB1:  17.42  136
+            I-ORG: precision:  51.63%; recall:  28.96%; FB1:  37.11  184
+            I-PER: precision:  93.13%; recall:  52.02%; FB1:  66.75  1136
+            
+java weka.classifiers.lazy.IB1 -t dbspotlight_nerdtype.train.arff -T dbspotlight_nerdtype.test.arff -p 1,2 > dbspotlight_nerdtype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight_nerdtype.IB1.predictions.txt > dbspotlight_nerdtype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < dbspotlight_nerdtype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2112 phrases; correct: 1709.
+accuracy:  95.41%; precision:  80.92%; recall:  62.95%; FB1:  70.81
+            I-LOC: precision:  42.67%; recall:  48.12%; FB1:  45.23  150
+           I-MISC: precision:  24.65%; recall:  15.91%; FB1:  19.34  142
+            I-ORG: precision:  57.89%; recall:  26.83%; FB1:  36.67  152
+            I-PER: precision:  91.25%; recall:  74.83%; FB1:  82.23  1668
+
+java weka.classifiers.lazy.IB1 -t dbspotlight_uritype.train.arff -T dbspotlight_uritype.test.arff -p 1,2 > dbspotlight_uritype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  dbspotlight_uritype.IB1.predictions.txt >  dbspotlight_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r <  dbspotlight_uritype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1586 phrases; correct: 1234.
+accuracy:  94.10%; precision:  77.81%; recall:  45.45%; FB1:  57.38
+            I-LOC: precision:  38.46%; recall:  37.59%; FB1:  38.02  130
+           I-MISC: precision:  22.79%; recall:  14.09%; FB1:  17.42  136
+            I-ORG: precision:  51.63%; recall:  28.96%; FB1:  37.11  184
+            I-PER: precision:  93.13%; recall:  52.02%; FB1:  66.75  1136
+
+java weka.classifiers.lazy.IB1 -t dbspotlight_uritype_first.train.arff -T dbspotlight_uritype_first.test.arff -p 1,2 > dbspotlight_uritype_first.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  dbspotlight_uritype_first.IB1.predictions.txt >  dbspotlight_uritype_first.IB1.predictions.conll.txt
+perl ../conlleval.pl -r <  dbspotlight_uritype_first.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1586 phrases; correct: 1234.
+accuracy:  94.10%; precision:  77.81%; recall:  45.45%; FB1:  57.38
+            I-LOC: precision:  38.46%; recall:  37.59%; FB1:  38.02  130
+           I-MISC: precision:  22.79%; recall:  14.09%; FB1:  17.42  136
+            I-ORG: precision:  51.63%; recall:  28.96%; FB1:  37.11  184
+            I-PER: precision:  93.13%; recall:  52.02%; FB1:  66.75  1136
+
+java weka.classifiers.lazy.IB1 -t dbspotlight_uritype_second.train.arff -T dbspotlight_uritype_second.test.arff -p 1,2 > dbspotlight_uritype_second.IB1.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight_uritype_second.IB1.predictions.txt > dbspotlight_uritype_second.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < dbspotlight_uritype_second.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1586 phrases; correct: 1234.
+accuracy:  94.10%; precision:  77.81%; recall:  45.45%; FB1:  57.38
+            I-LOC: precision:  38.46%; recall:  37.59%; FB1:  38.02  130
+           I-MISC: precision:  22.79%; recall:  14.09%; FB1:  17.42  136
+            I-ORG: precision:  51.63%; recall:  28.96%; FB1:  37.11  184
+            I-PER: precision:  93.13%; recall:  52.02%; FB1:  66.75  1136
+
+java weka.classifiers.lazy.IB1 -t dbspotlight_uritype_third.train.arff -T dbspotlight_uritype_third.test.arff -p 1,2 > dbspotlight_uritype_third.IB1.predictions.txt          
+perl ../convertWekaPredictionsToCoNLL.pl dbspotlight_uritype_third.IB1.predictions.txt > dbspotlight_uritype_third.IB1.predictions.conll.txt           
+perl ../conlleval.pl -r < dbspotlight_uritype_third.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1586 phrases; correct: 1234.
+accuracy:  94.10%; precision:  77.81%; recall:  45.45%; FB1:  57.38
+            I-LOC: precision:  38.46%; recall:  37.59%; FB1:  38.02  130
+           I-MISC: precision:  22.79%; recall:  14.09%; FB1:  17.42  136
+            I-ORG: precision:  51.63%; recall:  28.96%; FB1:  37.11  184
+            I-PER: precision:  93.13%; recall:  52.02%; FB1:  66.75  1136
+
+
+###########
+# Lupedia 
+###########
+
+java weka.classifiers.bayes.NaiveBayes -t lupedia.train.arff -T lupedia.test.arff -p 1,2 > lupedia.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl lupedia.NaiveBayes.predictions.txt > lupedia.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < lupedia.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1571 phrases; correct: 1292.
+accuracy:  94.40%; precision:  82.24%; recall:  47.59%; FB1:  60.29
+            I-LOC: precision:  51.61%; recall:  24.06%; FB1:  32.82  62
+           I-MISC: precision:   9.01%; recall:   4.55%; FB1:   6.04  111
+            I-ORG: precision:  42.13%; recall:  22.87%; FB1:  29.64  178
+            I-PER: precision:  96.31%; recall:  57.77%; FB1:  72.22  1220
+
+java weka.classifiers.bayes.NaiveBayes -t lupedia_nerdtype.train.arff -T lupedia_nerdtype.test.arff -p 1,2 > lupedia_nerdtype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl lupedia_nerdtype.NaiveBayes.predictions.txt > lupedia_nerdtype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < lupedia_nerdtype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1554 phrases; correct: 1281.
+accuracy:  94.38%; precision:  82.43%; recall:  47.18%; FB1:  60.01
+            I-LOC: precision:  43.66%; recall:  23.31%; FB1:  30.39  71
+           I-MISC: precision:  14.74%; recall:   6.36%; FB1:   8.89  95
+            I-ORG: precision:  35.93%; recall:  18.29%; FB1:  24.24  167
+            I-PER: precision:  96.31%; recall:  57.82%; FB1:  72.26  1221
+
+java weka.classifiers.bayes.NaiveBayes -t lupedia_uritype.train.arff -T lupedia_uritype.test.arff -p 1,2 > lupedia_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  lupedia_uritype.NaiveBayes.predictions.txt >  lupedia_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r <  lupedia_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1571 phrases; correct: 1292.
+accuracy:  94.40%; precision:  82.24%; recall:  47.59%; FB1:  60.29
+            I-LOC: precision:  51.61%; recall:  24.06%; FB1:  32.82  62
+           I-MISC: precision:   9.01%; recall:   4.55%; FB1:   6.04  111
+            I-ORG: precision:  42.13%; recall:  22.87%; FB1:  29.64  178
+            I-PER: precision:  96.31%; recall:  57.77%; FB1:  72.22  1220
+
+java weka.classifiers.bayes.NaiveBayes -t lupedia_uritype_first.train.arff -T lupedia_uritype_first.test.arff -p 1,2 > lupedia_uritype_first.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  lupedia_uritype_first.NaiveBayes.predictions.txt >  lupedia_uritype_first.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r <  lupedia_uritype_first.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1582 phrases; correct: 1266.
+accuracy:  94.28%; precision:  80.03%; recall:  46.63%; FB1:  58.92
+            I-LOC: precision:  43.66%; recall:  23.31%; FB1:  30.39  71
+           I-MISC: precision:   9.65%; recall:   5.00%; FB1:   6.59  114
+            I-ORG: precision:  41.82%; recall:  14.02%; FB1:  21.00  110
+            I-PER: precision:  91.53%; recall:  57.92%; FB1:  70.94  1287
+
+java weka.classifiers.bayes.NaiveBayes -t lupedia_uritype_second.train.arff -T lupedia_uritype_second.test.arff -p 1,2 > lupedia_uritype_second.NaiveBayes.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl lupedia_uritype_second.NaiveBayes.predictions.txt > lupedia_uritype_second.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < lupedia_uritype_second.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1597 phrases; correct: 1296.
+accuracy:  94.33%; precision:  81.15%; recall:  47.73%; FB1:  60.11
+            I-LOC: precision:  50.00%; recall:  24.06%; FB1:  32.49  64
+           I-MISC: precision:   8.40%; recall:   4.55%; FB1:   5.90  119
+            I-ORG: precision:  39.78%; recall:  21.95%; FB1:  28.29  181
+            I-PER: precision:  95.86%; recall:  58.11%; FB1:  72.36  1233
+
+java weka.classifiers.bayes.NaiveBayes -t lupedia_uritype_third.train.arff -T lupedia_uritype_third.test.arff -p 1,2 > lupedia_uritype_third.NaiveBayes.predictions.txt          
+perl ../convertWekaPredictionsToCoNLL.pl lupedia_uritype_third.NaiveBayes.predictions.txt > lupedia_uritype_third.NaiveBayes.predictions.conll.txt           
+perl ../conlleval.pl -r < lupedia_uritype_third.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1601 phrases; correct: 1302.
+accuracy:  94.34%; precision:  81.32%; recall:  47.96%; FB1:  60.33
+            I-LOC: precision:  54.24%; recall:  24.06%; FB1:  33.33  59
+           I-MISC: precision:   9.09%; recall:   5.00%; FB1:   6.45  121
+            I-ORG: precision:  41.49%; recall:  23.78%; FB1:  30.23  188
+            I-PER: precision:  95.78%; recall:  58.06%; FB1:  72.30  1233
+
+java weka.classifiers.lazy.IB1 -t lupedia.train.arff -T lupedia.test.arff -p 1,2 > lupedia.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl lupedia.IB1.predictions.txt > lupedia.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < lupedia.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2105 phrases; correct: 1658.
+accuracy:  95.17%; precision:  78.76%; recall:  61.07%; FB1:  68.80
+            I-LOC: precision:  43.90%; recall:  40.60%; FB1:  42.19  123
+           I-MISC: precision:  21.59%; recall:  17.27%; FB1:  19.19  176
+            I-ORG: precision:  44.10%; recall:  38.72%; FB1:  41.23  288
+            I-PER: precision:  94.80%; recall:  70.75%; FB1:  81.02  1518
+            
+java weka.classifiers.lazy.IB1 -t lupedia_nerdtype.train.arff -T lupedia_nerdtype.test.arff -p 1,2 > lupedia_nerdtype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl lupedia_nerdtype.IB1.predictions.txt > lupedia_nerdtype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < lupedia_nerdtype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2025 phrases; correct: 1643.
+accuracy:  95.36%; precision:  81.14%; recall:  60.52%; FB1:  69.32
+            I-LOC: precision:  43.70%; recall:  39.10%; FB1:  41.27  119
+           I-MISC: precision:  36.89%; recall:  17.27%; FB1:  23.53  103
+            I-ORG: precision:  42.76%; recall:  37.80%; FB1:  40.13  290
+            I-PER: precision:  94.45%; recall:  70.26%; FB1:  80.58  1513
+
+
+
+java weka.classifiers.lazy.IB1 -t lupedia_uritype.train.arff -T lupedia_uritype.test.arff -p 1,2 > lupedia_uritype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  lupedia_uritype.IB1.predictions.txt >  lupedia_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r <  lupedia_uritype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2105 phrases; correct: 1658.
+accuracy:  95.17%; precision:  78.76%; recall:  61.07%; FB1:  68.80
+            I-LOC: precision:  43.90%; recall:  40.60%; FB1:  42.19  123
+           I-MISC: precision:  21.59%; recall:  17.27%; FB1:  19.19  176
+            I-ORG: precision:  44.10%; recall:  38.72%; FB1:  41.23  288
+            I-PER: precision:  94.80%; recall:  70.75%; FB1:  81.02  1518
+
+java weka.classifiers.lazy.IB1 -t lupedia_uritype_first.train.arff -T lupedia_uritype_first.test.arff -p 1,2 > lupedia_uritype_first.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  lupedia_uritype_first.IB1.predictions.txt >  lupedia_uritype_first.IB1.predictions.conll.txt
+perl ../conlleval.pl -r <  lupedia_uritype_first.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2009 phrases; correct: 1630.
+accuracy:  95.32%; precision:  81.13%; recall:  60.04%; FB1:  69.01
+            I-LOC: precision:  43.44%; recall:  39.85%; FB1:  41.57  122
+           I-MISC: precision:  38.82%; recall:  15.00%; FB1:  21.64  85
+            I-ORG: precision:  44.57%; recall:  35.06%; FB1:  39.25  258
+            I-PER: precision:  92.55%; recall:  70.26%; FB1:  79.88  1544
+
+java weka.classifiers.lazy.IB1 -t lupedia_uritype_second.train.arff -T lupedia_uritype_second.test.arff -p 1,2 > lupedia_uritype_second.IB1.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl lupedia_uritype_second.IB1.predictions.txt > lupedia_uritype_second.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < lupedia_uritype_second.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2114 phrases; correct: 1659.
+accuracy:  95.15%; precision:  78.48%; recall:  61.10%; FB1:  68.71
+            I-LOC: precision:  42.86%; recall:  40.60%; FB1:  41.70  126
+           I-MISC: precision:  21.59%; recall:  17.27%; FB1:  19.19  176
+            I-ORG: precision:  43.64%; recall:  38.72%; FB1:  41.03  291
+            I-PER: precision:  94.67%; recall:  70.80%; FB1:  81.01  1521
+            
+java weka.classifiers.lazy.IB1 -t lupedia_uritype_third.train.arff -T lupedia_uritype_third.test.arff -p 1,2 > lupedia_uritype_third.IB1.predictions.txt          
+perl ../convertWekaPredictionsToCoNLL.pl lupedia_uritype_third.IB1.predictions.txt > lupedia_uritype_third.IB1.predictions.conll.txt           
+perl ../conlleval.pl -r < lupedia_uritype_third.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2118 phrases; correct: 1665.
+accuracy:  95.17%; precision:  78.61%; recall:  61.33%; FB1:  68.90
+            I-LOC: precision:  43.90%; recall:  40.60%; FB1:  42.19  123
+           I-MISC: precision:  21.59%; recall:  17.27%; FB1:  19.19  176
+            I-ORG: precision:  43.99%; recall:  39.02%; FB1:  41.36  291
+            I-PER: precision:  94.57%; recall:  71.04%; FB1:  81.13  1528
+
+
+############
+## OpenCalais
+############
+
+# run weka + output predictions and attributes 
+java weka.classifiers.lazy.IB1 -t opencalais.train.arff -T opencalais.test.arff -p 1,2 > opencalais.IB1.predictions.txt
+
+# convert weka output to conll input 
+perl ../../convertWekaPredictionsToCoNLL.pl opencalais.IB1.predictions.txt > opencalais.IB1.predictions.conll.txt
+
+# run evaluation script 
+perl ../../conlleval.pl -r < opencalais.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2472 phrases; correct: 1895.
+accuracy:  95.47%; precision:  76.66%; recall:  69.80%; FB1:  73.07
+            I-LOC: precision:  54.17%; recall:  48.87%; FB1:  51.38  120
+           I-MISC: precision:  50.67%; recall:  34.55%; FB1:  41.08  150
+            I-ORG: precision:  21.85%; recall:  29.57%; FB1:  25.13  444
+            I-PER: precision:  94.25%; recall:  81.47%; FB1:  87.39  1758
+
+
+java weka.classifiers.lazy.IB1 -t opencalais_nerdtype.train.arff -T opencalais_nerdtype.test.arff -p 1,2 > opencalais_nerdtype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl opencalais_nerdtype.IB1.predictions.txt > opencalais_nerdtype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < opencalais_nerdtype.IB1.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 2119 phrases; correct: 1852.
+accuracy:  96.38%; precision:  87.40%; recall:  68.21%; FB1:  76.62
+            I-LOC: precision:  53.72%; recall:  48.87%; FB1:  51.18  121
+           I-MISC: precision:  37.08%; recall:  15.00%; FB1:  21.36  89
+            I-ORG: precision:  62.50%; recall:  28.96%; FB1:  39.58  152
+            I-PER: precision:  94.42%; recall:  81.56%; FB1:  87.52  1757
+
+
+java weka.classifiers.lazy.IB1 -t opencalais_uritype_first.train.arff -T opencalais_uritype_first.test.arff -p 1,2 > opencalais_uritype_first.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl opencalais_uritype_first.IB1.predictions.txt > opencalais_uritype_first.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < opencalais_uritype_first.IB1.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 2472 phrases; correct: 1895.
+accuracy:  95.47%; precision:  76.66%; recall:  69.80%; FB1:  73.07
+            I-LOC: precision:  54.17%; recall:  48.87%; FB1:  51.38  120
+           I-MISC: precision:  50.67%; recall:  34.55%; FB1:  41.08  150
+            I-ORG: precision:  21.85%; recall:  29.57%; FB1:  25.13  444
+            I-PER: precision:  94.25%; recall:  81.47%; FB1:  87.39  1758
+
+
+
+java weka.classifiers.bayes.NaiveBayes -t opencalais_nerdtype.train.arff -T opencalais_nerdtype.test.arff -p 1,2 > opencalais_nerdtype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl opencalais_nerdtype.NaiveBayes.predictions.txt > opencalais_nerdtype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < opencalais_nerdtype.NaiveBayes.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 1878 phrases; correct: 1719.
+accuracy:  96.17%; precision:  91.53%; recall:  63.31%; FB1:  74.85
+            I-LOC: precision:  68.57%; recall:  36.09%; FB1:  47.29  70
+           I-MISC: precision:  78.79%; recall:  23.64%; FB1:  36.36  66
+            I-ORG: precision:  61.11%; recall:  20.12%; FB1:  30.28  108
+            I-PER: precision:  95.04%; recall:  76.35%; FB1:  84.68  1634
+
+
+java weka.classifiers.bayes.NaiveBayes -t opencalais_uritype_first.train.arff -T opencalais_uritype_first.test.arff -p 1,2 > opencalais_uritype_first.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl opencalais_uritype_first.NaiveBayes.predictions.txt > opencalais_uritype_first.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < opencalais_uritype_first.NaiveBayes.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 1882 phrases; correct: 1720.
+accuracy:  96.16%; precision:  91.39%; recall:  63.35%; FB1:  74.83
+            I-LOC: precision:  63.16%; recall:  36.09%; FB1:  45.93  76
+           I-MISC: precision:  80.00%; recall:  23.64%; FB1:  36.49  65
+            I-ORG: precision:  64.36%; recall:  19.82%; FB1:  30.30  101
+            I-PER: precision:  94.82%; recall:  76.45%; FB1:  84.65  1640
+
+java -Xmx4g weka.classifiers.trees.J48 -t opencalais_nerdtype.train.arff -T opencalais_nerdtype.test.arff -p 1,2 > opencalais_nerdtype.J48.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl opencalais_nerdtype.J48.predictions.txt > opencalais_nerdtype.J48.predictions.conll.txt
+perl ../conlleval.pl -r < opencalais_nerdtype.J48.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 0 phrases; correct: 0.
+accuracy:  90.67%; precision:   0.00%; recall:   0.00%; FB1:   0.00
+            I-LOC: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           I-MISC: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            I-ORG: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            I-PER: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+
+
+java -Xmx4g weka.classifiers.trees.J48 -t opencalais_uritype_first.train.arff -T opencalais_uritype_first.test.arff -p 1,2 > opencalais_uritype_first.J48.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl opencalais_uritype_first.J48.predictions.txt > opencalais_uritype_first.J48.predictions.conll.txt
+perl ../conlleval.pl -r < opencalais_uritype_first.J48.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 0 phrases; correct: 0.
+accuracy:  90.67%; precision:   0.00%; recall:   0.00%; FB1:   0.00
+            I-LOC: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+           I-MISC: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            I-ORG: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            I-PER: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+
+################
+# datatxt 
+################
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt.train.arff -T  datatxt.test.arff -p 1,2 > datatxt_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.NaiveBayes.predictions.txt >  datatxt_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2239 phrases; correct: 1814.
+accuracy:  95.83%; precision:  81.02%; recall:  66.81%; FB1:  73.23
+            I-LOC: precision:  58.87%; recall:  54.89%; FB1:  56.81  124
+           I-MISC: precision:  50.00%; recall:  35.00%; FB1:  41.18  154
+            I-ORG: precision:  48.28%; recall:  46.95%; FB1:  47.60  319
+            I-PER: precision:  91.96%; recall:  74.24%; FB1:  82.15  1642
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_nerdtype.train.arff -T datatxt_nerdtype.test.arff -p 1,2 > datatxt_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.NaiveBayes.predictions.txt > datatxt_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1772 phrases; correct: 1453.
+accuracy:  94.84%; precision:  82.00%; recall:  53.52%; FB1:  64.76
+            I-LOC: precision:  51.85%; recall:  52.63%; FB1:  52.24  135
+           I-MISC: precision:  44.12%; recall:  34.09%; FB1:  38.46  170
+            I-ORG: precision:  42.70%; recall:  11.59%; FB1:  18.23  89
+            I-PER: precision:  92.16%; recall:  62.44%; FB1:  74.44  1378
+
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype.train.arff -T datatxt_uritype.test.arff -p 1,2 > datatxt_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.NaiveBayes.predictions.txt > datatxt_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2239 phrases; correct: 1814.
+accuracy:  95.83%; precision:  81.02%; recall:  66.81%; FB1:  73.23
+            I-LOC: precision:  58.87%; recall:  54.89%; FB1:  56.81  124
+           I-MISC: precision:  50.00%; recall:  35.00%; FB1:  41.18  154
+            I-ORG: precision:  48.28%; recall:  46.95%; FB1:  47.60  319
+            I-PER: precision:  91.96%; recall:  74.24%; FB1:  82.15  1642
+            
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype_first.train.arff -T datatxt_uritype_first.test.arff -p 1,2 >  datatxt_uritype_first.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_first.NaiveBayes.predictions.txt > datatxt_uritype_first.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_first.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2154 phrases; correct: 1706.
+accuracy:  95.56%; precision:  79.20%; recall:  62.84%; FB1:  70.08
+            I-LOC: precision:  51.02%; recall:  56.39%; FB1:  53.57  147
+           I-MISC: precision:  67.39%; recall:  14.09%; FB1:  23.31  46
+            I-ORG: precision:  45.81%; recall:  21.65%; FB1:  29.40  155
+            I-PER: precision:  84.66%; recall:  75.17%; FB1:  79.64  1806
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype_second.train.arff -T datatxt_uritype_second.test.arff -p 1,2 >  datatxt_uritype_second.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_second.NaiveBayes.predictions.txt > datatxt_uritype_second.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_second.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2280 phrases; correct: 1839.
+accuracy:  95.83%; precision:  80.66%; recall:  67.73%; FB1:  73.63
+            I-LOC: precision:  55.00%; recall:  57.89%; FB1:  56.41  140
+           I-MISC: precision:  48.50%; recall:  36.82%; FB1:  41.86  167
+            I-ORG: precision:  43.92%; recall:  48.48%; FB1:  46.09  362
+            I-PER: precision:  94.48%; recall:  74.83%; FB1:  83.51  1611
+
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype_third.train.arff -T datatxt_uritype_third.test.arff -p 1,2 > datatxt_uritype_third.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_third.NaiveBayes.predictions.txt > datatxt_uritype_third.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_third.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2264 phrases; correct: 1818.
+accuracy:  95.80%; precision:  80.30%; recall:  66.96%; FB1:  73.03
+            I-LOC: precision:  50.71%; recall:  53.38%; FB1:  52.01  140
+           I-MISC: precision:  51.28%; recall:  36.36%; FB1:  42.55  156
+            I-ORG: precision:  42.62%; recall:  47.56%; FB1:  44.96  366
+            I-PER: precision:  94.32%; recall:  74.29%; FB1:  83.11  1602
+            
+###########
+# textrazor 
+###########
+
+java weka.classifiers.bayes.NaiveBayes -t textrazor.train.arff -T textrazor.test.arff -p 1,2 > textrazor.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl textrazor.NaiveBayes.predictions.txt > textrazor.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < textrazor.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2707 phrases; correct: 1987.
+accuracy:  95.64%; precision:  73.40%; recall:  73.19%; FB1:  73.29
+            I-LOC: precision:  57.47%; recall:  37.59%; FB1:  45.45  87
+           I-MISC: precision:  67.35%; recall:  15.00%; FB1:  24.54  49
+            I-ORG: precision:  68.22%; recall:  26.83%; FB1:  38.51  129
+            I-PER: precision:  74.37%; recall:  89.28%; FB1:  81.14  2442
+
+java weka.classifiers.bayes.NaiveBayes -t textrazor_nerdtype.train.arff -T textrazor_nerdtype.test.arff -p 1,2 > textrazor_nerdtype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl textrazor_nerdtype.NaiveBayes.predictions.txt > textrazor_nerdtype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < textrazor_nerdtype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2752 phrases; correct: 2030.
+accuracy:  95.84%; precision:  73.76%; recall:  74.77%; FB1:  74.26
+            I-LOC: precision:  32.39%; recall:  60.15%; FB1:  42.11  247
+           I-MISC: precision:  52.94%; recall:   8.18%; FB1:  14.17  34
+            I-ORG: precision:  30.94%; recall:  47.26%; FB1:  37.39  501
+            I-PER: precision:  90.20%; recall:  87.36%; FB1:  88.76  1970
+
+java weka.classifiers.bayes.NaiveBayes -t textrazor_uritype.train.arff -T textrazor_uritype.test.arff -p 1,2 > textrazor_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  textrazor_uritype.NaiveBayes.predictions.txt >  textrazor_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r <  textrazor_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2504 phrases; correct: 1991.
+accuracy:  96.23%; precision:  79.51%; recall:  73.33%; FB1:  76.30
+            I-LOC: precision:  37.83%; recall:  65.41%; FB1:  47.93  230
+           I-MISC: precision:  61.36%; recall:  12.27%; FB1:  20.45  44
+            I-ORG: precision:  46.72%; recall:  39.02%; FB1:  42.52  274
+            I-PER: precision:  89.42%; recall:  85.99%; FB1:  87.67  1956
+
+java weka.classifiers.bayes.NaiveBayes -t textrazor_uritype_first.train.arff -T textrazor_uritype_first.test.arff -p 1,2 > textrazor_uritype_first.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  textrazor_uritype_first.NaiveBayes.predictions.txt >  textrazor_uritype_first.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r <  textrazor_uritype_first.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2791 phrases; correct: 2008.
+accuracy:  95.58%; precision:  71.95%; recall:  73.96%; FB1:  72.94
+            I-LOC: precision:  32.23%; recall:  66.17%; FB1:  43.35  273
+           I-MISC: precision:  63.41%; recall:  11.82%; FB1:  19.92  41
+            I-ORG: precision:  50.91%; recall:  34.15%; FB1:  40.88  220
+            I-PER: precision:  78.95%; recall:  87.61%; FB1:  83.06  2257
+
+java weka.classifiers.bayes.NaiveBayes -t textrazor_uritype_second.train.arff -T textrazor_uritype_second.test.arff -p 1,2 > textrazor_uritype_second.NaiveBayes.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl textrazor_uritype_second.NaiveBayes.predictions.txt > textrazor_uritype_second.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < textrazor_uritype_second.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2490 phrases; correct: 1995.
+accuracy:  96.28%; precision:  80.12%; recall:  73.48%; FB1:  76.66
+            I-LOC: precision:  37.50%; recall:  65.41%; FB1:  47.67  232
+           I-MISC: precision:  62.22%; recall:  12.73%; FB1:  21.13  45
+            I-ORG: precision:  50.00%; recall:  38.72%; FB1:  43.64  254
+            I-PER: precision:  89.48%; recall:  86.18%; FB1:  87.80  1959
+
+java weka.classifiers.bayes.NaiveBayes -t textrazor_uritype_third.train.arff -T textrazor_uritype_third.test.arff -p 1,2 > textrazor_uritype_third.NaiveBayes.predictions.txt          
+perl ../convertWekaPredictionsToCoNLL.pl textrazor_uritype_third.NaiveBayes.predictions.txt > textrazor_uritype_third.NaiveBayes.predictions.conll.txt           
+perl ../conlleval.pl -r < textrazor_uritype_third.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2504 phrases; correct: 1998.
+accuracy:  96.26%; precision:  79.79%; recall:  73.59%; FB1:  76.57
+            I-LOC: precision:  37.66%; recall:  65.41%; FB1:  47.80  231
+           I-MISC: precision:  65.22%; recall:  13.64%; FB1:  22.56  46
+            I-ORG: precision:  47.60%; recall:  39.33%; FB1:  43.07  271
+            I-PER: precision:  89.57%; recall:  86.14%; FB1:  87.82  1956
+
+java weka.classifiers.lazy.IB1 -t textrazor.train.arff -T textrazor.test.arff -p 1,2 > textrazor.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl textrazor.IB1.predictions.txt > textrazor.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < textrazor.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2351 phrases; correct: 1660.
+accuracy:  94.63%; precision:  70.61%; recall:  61.14%; FB1:  65.53
+            I-LOC: precision:  43.31%; recall:  41.35%; FB1:  42.31  127
+           I-MISC: precision:  27.78%; recall:  20.45%; FB1:  23.56  162
+            I-ORG: precision:  29.84%; recall:  44.21%; FB1:  35.63  486
+            I-PER: precision:  89.78%; recall:  69.57%; FB1:  78.39  1576
+            
+java weka.classifiers.lazy.IB1 -t textrazor_nerdtype.train.arff -T textrazor_nerdtype.test.arff -p 1,2 > textrazor_nerdtype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl textrazor_nerdtype.IB1.predictions.txt > textrazor_nerdtype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < textrazor_nerdtype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2927 phrases; correct: 1951.
+accuracy:  95.05%; precision:  66.66%; recall:  71.86%; FB1:  69.16
+            I-LOC: precision:  14.13%; recall:  78.20%; FB1:  23.94  736
+           I-MISC: precision:  27.34%; recall:  15.91%; FB1:  20.11  128
+            I-ORG: precision:  57.32%; recall:  28.66%; FB1:  38.21  164
+            I-PER: precision:  90.47%; recall:  84.46%; FB1:  87.36  1899
+
+java weka.classifiers.lazy.IB1 -t textrazor_uritype.train.arff -T textrazor_uritype.test.arff -p 1,2 > textrazor_uritype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  textrazor_uritype.IB1.predictions.txt >  textrazor_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r <  textrazor_uritype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2820 phrases; correct: 1998.
+accuracy:  95.46%; precision:  70.85%; recall:  73.59%; FB1:  72.20
+            I-LOC: precision:  32.12%; recall:  66.17%; FB1:  43.24  274
+           I-MISC: precision:  29.68%; recall:  20.91%; FB1:  24.53  155
+            I-ORG: precision:  29.22%; recall:  44.82%; FB1:  35.38  503
+            I-PER: precision:  90.94%; recall:  84.41%; FB1:  87.56  1888
+
+java weka.classifiers.lazy.IB1 -t textrazor_uritype_first.train.arff -T textrazor_uritype_first.test.arff -p 1,2 > textrazor_uritype_first.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  textrazor_uritype_first.IB1.predictions.txt >  textrazor_uritype_first.IB1.predictions.conll.txt
+perl ../conlleval.pl -r <  textrazor_uritype_first.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2793 phrases; correct: 2017.
+accuracy:  95.57%; precision:  72.22%; recall:  74.29%; FB1:  73.24
+            I-LOC: precision:  31.07%; recall:  65.41%; FB1:  42.13  280
+           I-MISC: precision:  32.82%; recall:  19.55%; FB1:  24.50  131
+            I-ORG: precision:  52.63%; recall:  30.49%; FB1:  38.61  190
+            I-PER: precision:  81.52%; recall:  87.86%; FB1:  84.57  2192
+
+java weka.classifiers.lazy.IB1 -t textrazor_uritype_second.train.arff -T textrazor_uritype_second.test.arff -p 1,2 > textrazor_uritype_second.IB1.predictions.txt 
+perl ../convertWekaPredictionsToCoNLL.pl textrazor_uritype_second.IB1.predictions.txt > textrazor_uritype_second.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < textrazor_uritype_second.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2807 phrases; correct: 2016.
+accuracy:  95.56%; precision:  71.82%; recall:  74.25%; FB1:  73.02
+            I-LOC: precision:  30.97%; recall:  62.41%; FB1:  41.40  268
+           I-MISC: precision:  33.86%; recall:  19.55%; FB1:  24.78  127
+            I-ORG: precision:  28.03%; recall:  40.85%; FB1:  33.25  478
+            I-PER: precision:  90.80%; recall:  86.33%; FB1:  88.51  1934
+
+java weka.classifiers.lazy.IB1 -t textrazor_uritype_third.train.arff -T textrazor_uritype_third.test.arff -p 1,2 > textrazor_uritype_third.IB1.predictions.txt          
+perl ../convertWekaPredictionsToCoNLL.pl textrazor_uritype_third.IB1.predictions.txt > textrazor_uritype_third.IB1.predictions.conll.txt           
+perl ../conlleval.pl -r < textrazor_uritype_third.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2844 phrases; correct: 2025.
+accuracy:  95.53%; precision:  71.20%; recall:  74.59%; FB1:  72.85
+            I-LOC: precision:  31.25%; recall:  63.91%; FB1:  41.98  272
+           I-MISC: precision:  31.94%; recall:  20.91%; FB1:  25.27  144
+            I-ORG: precision:  29.08%; recall:  45.12%; FB1:  35.36  509
+            I-PER: precision:  90.98%; recall:  85.84%; FB1:  88.34  1919
+###########
+# Zemanta 
+###########
+
+java weka.classifiers.bayes.NaiveBayes -t zemanta.train.arff -T zemanta.test.arff -p 1,2 > zemanta.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl zemanta.NaiveBayes.predictions.txt > zemanta.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < zemanta.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1343 phrases; correct: 1143.
+accuracy:  94.15%; precision:  85.11%; recall:  42.10%; FB1:  56.33
+            I-LOC: precision:  50.50%; recall:  38.35%; FB1:  43.59  101
+           I-MISC: precision:  38.98%; recall:  20.91%; FB1:  27.22  118
+            I-ORG: precision:  61.90%; recall:  23.78%; FB1:  34.36  126
+            I-PER: precision:  96.99%; recall:  47.59%; FB1:  63.85  998
+
+java weka.classifiers.bayes.NaiveBayes -t zemanta_nerdtype.train.arff -T zemanta_nerdtype.test.arff -p 1,2 > zemanta_nerdtype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl zemanta_nerdtype.NaiveBayes.predictions.txt > zemanta_nerdtype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < zemanta_nerdtype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1387 phrases; correct: 1068.
+accuracy:  93.40%; precision:  77.00%; recall:  39.34%; FB1:  52.07
+            I-LOC: precision:  56.52%; recall:  39.10%; FB1:  46.22  92
+           I-MISC: precision:   0.00%; recall:   0.00%; FB1:   0.00  0
+            I-ORG: precision:  18.21%; recall:  16.77%; FB1:  17.46  302
+            I-PER: precision:  96.78%; recall:  47.25%; FB1:  63.50  993
+
+java weka.classifiers.bayes.NaiveBayes -t zemanta_uritype.train.arff -T zemanta_uritype.test.arff -p 1,2 > zemanta_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  zemanta_uritype.NaiveBayes.predictions.txt >  zemanta_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r <  zemanta_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1343 phrases; correct: 1143.
+accuracy:  94.15%; precision:  85.11%; recall:  42.10%; FB1:  56.33
+            I-LOC: precision:  50.50%; recall:  38.35%; FB1:  43.59  101
+           I-MISC: precision:  38.98%; recall:  20.91%; FB1:  27.22  118
+            I-ORG: precision:  61.90%; recall:  23.78%; FB1:  34.36  126
+            I-PER: precision:  96.99%; recall:  47.59%; FB1:  63.85  998
+
+java weka.classifiers.lazy.IB1 -t zemanta.train.arff -T zemanta.test.arff -p 1,2 > zemanta.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl zemanta.IB1.predictions.txt > zemanta.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < zemanta.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1951 phrases; correct: 1569.
+accuracy:  95.07%; precision:  80.42%; recall:  57.79%; FB1:  67.25
+            I-LOC: precision:  41.07%; recall:  51.88%; FB1:  45.85  168
+           I-MISC: precision:  23.43%; recall:  18.64%; FB1:  20.76  175
+            I-ORG: precision:  59.78%; recall:  32.62%; FB1:  42.21  179
+            I-PER: precision:  94.61%; recall:  66.47%; FB1:  78.08  1429 
+            
+java weka.classifiers.lazy.IB1 -t zemanta_uritype.train.arff -T zemanta_uritype.test.arff -p 1,2 > zemanta_uritype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  zemanta_uritype.IB1.predictions.txt >  zemanta_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r <  zemanta_uritype.IB1.predictions.conll.txt  
+processed 29089 tokens with 2715 phrases; found: 1951 phrases; correct: 1569.
+accuracy:  95.07%; precision:  80.42%; recall:  57.79%; FB1:  67.25
+            I-LOC: precision:  41.07%; recall:  51.88%; FB1:  45.85  168
+           I-MISC: precision:  23.43%; recall:  18.64%; FB1:  20.76  175
+            I-ORG: precision:  59.78%; recall:  32.62%; FB1:  42.21  179
+            I-PER: precision:  94.61%; recall:  66.47%; FB1:  78.08  1429  
+            
+java weka.classifiers.lazy.IB1 -t zemanta_nerdtype.train.arff -T zemanta_nerdtype.test.arff -p 1,2 > zemanta_nerdtype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl zemanta_nerdtype.IB1.predictions.txt > zemanta_nerdtype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < zemanta_nerdtype.IB1.predictions.conll.txt            
+processed 29089 tokens with 2715 phrases; found: 1885 phrases; correct: 1547.
+accuracy:  95.13%; precision:  82.07%; recall:  56.98%; FB1:  67.26
+            I-LOC: precision:  45.64%; recall:  51.13%; FB1:  48.23  149
+           I-MISC: precision:  23.40%; recall:  15.00%; FB1:  18.28  141
+            I-ORG: precision:  57.93%; recall:  28.96%; FB1:  38.62  164
+            I-PER: precision:  94.41%; recall:  66.42%; FB1:  77.98  1431            
+            
+            
+            
+#########
+# datatxt
+##########
+
+
+java weka.classifiers.lazy.IB1 -t datatxt.train.arff -T  datatxt.test.arff -p 1,2 > datatxt_uritype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.IB1.predictions.txt >  datatxt_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2160 phrases; correct: 1751.
+accuracy:  95.56%; precision:  81.06%; recall:  64.49%; FB1:  71.84
+            I-LOC: precision:  49.16%; recall:  66.17%; FB1:  56.41  179
+           I-MISC: precision:  33.95%; recall:  25.00%; FB1:  28.80  162
+            I-ORG: precision:  51.56%; recall:  35.37%; FB1:  41.95  225
+            I-PER: precision:  93.60%; recall:  73.35%; FB1:  82.25  1594
+
+java weka.classifiers.lazy.IB1 -t datatxt_nerdtype.train.arff -T datatxt_nerdtype.test.arff -p 1,2 > datatxt_uritype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.IB1.predictions.txt > datatxt_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1669 phrases; correct: 1273.
+accuracy:  93.95%; precision:  76.27%; recall:  46.89%; FB1:  58.07
+            I-LOC: precision:  46.94%; recall:  69.17%; FB1:  55.93  196
+           I-MISC: precision:  27.78%; recall:  18.18%; FB1:  21.98  144
+            I-ORG: precision:  43.48%; recall:  30.49%; FB1:  35.84  230
+            I-PER: precision:  94.72%; recall:  51.18%; FB1:  66.45  1099
+
+
+java weka.classifiers.lazy.IB1 -t datatxt_uritype.train.arff -T datatxt_uritype.test.arff -p 1,2 > datatxt_uritype.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.IB1.predictions.txt > datatxt_uritype.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.IB1.predictions.conll.txt
+
+processed 29089 tokens with 2715 phrases; found: 2160 phrases; correct: 1751.
+accuracy:  95.56%; precision:  81.06%; recall:  64.49%; FB1:  71.84
+            I-LOC: precision:  49.16%; recall:  66.17%; FB1:  56.41  179
+           I-MISC: precision:  33.95%; recall:  25.00%; FB1:  28.80  162
+            I-ORG: precision:  51.56%; recall:  35.37%; FB1:  41.95  225
+            I-PER: precision:  93.60%; recall:  73.35%; FB1:  82.25  1594
+            
+
+java weka.classifiers.lazy.IB1 -t datatxt_uritype_first.train.arff -T datatxt_uritype_first.test.arff -p 1,2 >  datatxt_uritype_first.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_first.IB1.predictions.txt > datatxt_uritype_first.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_first.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1803 phrases; correct: 1411.
+accuracy:  94.41%; precision:  78.26%; recall:  51.97%; FB1:  62.46
+            I-LOC: precision:  47.47%; recall:  70.68%; FB1:  56.80  198
+           I-MISC: precision:  30.00%; recall:  21.82%; FB1:  25.26  160
+            I-ORG: precision:  50.00%; recall:  31.10%; FB1:  38.35  204
+            I-PER: precision:  94.04%; recall:  57.37%; FB1:  71.27  1241
+
+java weka.classifiers.lazy.IB1 -t datatxt_uritype_second.train.arff -T datatxt_uritype_second.test.arff -p 1,2 >  datatxt_uritype_second.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_second.IB1.predictions.txt > datatxt_uritype_second.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_second.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1790 phrases; correct: 1419.
+accuracy:  94.48%; precision:  79.27%; recall:  52.27%; FB1:  63.00
+            I-LOC: precision:  50.54%; recall:  70.68%; FB1:  58.93  186
+           I-MISC: precision:  36.36%; recall:  25.45%; FB1:  29.95  154
+            I-ORG: precision:  50.75%; recall:  31.10%; FB1:  38.56  201
+            I-PER: precision:  93.43%; recall:  57.37%; FB1:  71.09  1249
+
+java weka.classifiers.lazy.IB1 -t datatxt_uritype_third.train.arff -T datatxt_uritype_third.test.arff -p 1,2 > datatxt_uritype_third.IB1.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_third.IB1.predictions.txt > datatxt_uritype_third.IB1.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_third.IB1.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2191 phrases; correct: 1759.
+accuracy:  95.56%; precision:  80.28%; recall:  64.79%; FB1:  71.71
+            I-LOC: precision:  44.23%; recall:  69.17%; FB1:  53.96  208
+           I-MISC: precision:  34.38%; recall:  25.00%; FB1:  28.95  160
+            I-ORG: precision:  49.02%; recall:  30.49%; FB1:  37.59  204
+            I-PER: precision:  93.39%; recall:  74.34%; FB1:  82.78  1619           
+
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt.train.arff -T  datatxt.test.arff -p 1,2 > datatxt_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.NaiveBayes.predictions.txt >  datatxt_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2239 phrases; correct: 1814.
+accuracy:  95.83%; precision:  81.02%; recall:  66.81%; FB1:  73.23
+            I-LOC: precision:  58.87%; recall:  54.89%; FB1:  56.81  124
+           I-MISC: precision:  50.00%; recall:  35.00%; FB1:  41.18  154
+            I-ORG: precision:  48.28%; recall:  46.95%; FB1:  47.60  319
+            I-PER: precision:  91.96%; recall:  74.24%; FB1:  82.15  1642
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_nerdtype.train.arff -T datatxt_nerdtype.test.arff -p 1,2 > datatxt_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.NaiveBayes.predictions.txt > datatxt_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 1772 phrases; correct: 1453.
+accuracy:  94.84%; precision:  82.00%; recall:  53.52%; FB1:  64.76
+            I-LOC: precision:  51.85%; recall:  52.63%; FB1:  52.24  135
+           I-MISC: precision:  44.12%; recall:  34.09%; FB1:  38.46  170
+            I-ORG: precision:  42.70%; recall:  11.59%; FB1:  18.23  89
+            I-PER: precision:  92.16%; recall:  62.44%; FB1:  74.44  1378
+
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype.train.arff -T datatxt_uritype.test.arff -p 1,2 > datatxt_uritype.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype.NaiveBayes.predictions.txt > datatxt_uritype.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2239 phrases; correct: 1814.
+accuracy:  95.83%; precision:  81.02%; recall:  66.81%; FB1:  73.23
+            I-LOC: precision:  58.87%; recall:  54.89%; FB1:  56.81  124
+           I-MISC: precision:  50.00%; recall:  35.00%; FB1:  41.18  154
+            I-ORG: precision:  48.28%; recall:  46.95%; FB1:  47.60  319
+            I-PER: precision:  91.96%; recall:  74.24%; FB1:  82.15  1642
+            
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype_first.train.arff -T datatxt_uritype_first.test.arff -p 1,2 >  datatxt_uritype_first.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_first.NaiveBayes.predictions.txt > datatxt_uritype_first.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_first.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2154 phrases; correct: 1706.
+accuracy:  95.56%; precision:  79.20%; recall:  62.84%; FB1:  70.08
+            I-LOC: precision:  51.02%; recall:  56.39%; FB1:  53.57  147
+           I-MISC: precision:  67.39%; recall:  14.09%; FB1:  23.31  46
+            I-ORG: precision:  45.81%; recall:  21.65%; FB1:  29.40  155
+            I-PER: precision:  84.66%; recall:  75.17%; FB1:  79.64  1806
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype_second.train.arff -T datatxt_uritype_second.test.arff -p 1,2 >  datatxt_uritype_second.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_second.NaiveBayes.predictions.txt > datatxt_uritype_second.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_second.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2280 phrases; correct: 1839.
+accuracy:  95.83%; precision:  80.66%; recall:  67.73%; FB1:  73.63
+            I-LOC: precision:  55.00%; recall:  57.89%; FB1:  56.41  140
+           I-MISC: precision:  48.50%; recall:  36.82%; FB1:  41.86  167
+            I-ORG: precision:  43.92%; recall:  48.48%; FB1:  46.09  362
+            I-PER: precision:  94.48%; recall:  74.83%; FB1:  83.51  1611
+
+java weka.classifiers.bayes.NaiveBayes -t datatxt_uritype_third.train.arff -T datatxt_uritype_third.test.arff -p 1,2 > datatxt_uritype_third.NaiveBayes.predictions.txt
+perl ../convertWekaPredictionsToCoNLL.pl  datatxt_uritype_third.NaiveBayes.predictions.txt > datatxt_uritype_third.NaiveBayes.predictions.conll.txt
+perl ../conlleval.pl -r < datatxt_uritype_third.NaiveBayes.predictions.conll.txt
+processed 29089 tokens with 2715 phrases; found: 2264 phrases; correct: 1818.
+accuracy:  95.80%; precision:  80.30%; recall:  66.96%; FB1:  73.03
+            I-LOC: precision:  50.71%; recall:  53.38%; FB1:  52.01  140
+           I-MISC: precision:  51.28%; recall:  36.36%; FB1:  42.55  156
+            I-ORG: precision:  42.62%; recall:  47.56%; FB1:  44.96  366
+            I-PER: precision:  94.32%; recall:  74.29%; FB1:  83.11  1602
+
+########################################
+## CoNLL 2003 Experiments 
+########################################
+
+marieke@George:~/Dropbox/ISWC2014/conll2003/train$ for x in *conll ; do perl ../../WekaExperiments/createCSVforWekaFromCoNLL.pl $x > ../../WekaExperiments/conll2003/${x%.conll}.train.csv ; done 
+
+marieke@George:~/Dropbox/ISWC2014/conll2003/test$ for x in *conll ; do perl ../../WekaExperiments/createCSVforWekaFromCoNLL.pl $x > ../../WekaExperiments/conll2003/${x%.conll}.test.csv ; done 
+
+
+
+
+

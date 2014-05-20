@@ -1,0 +1,16 @@
+I-http://dbpedia.org/ontology/Agent I-ORG
+I-http://dbpedia.org/ontology/Agent I-PER
+I-http://dbpedia.org/ontology/Broadcast I-ORG
+I-http://dbpedia.org/ontology/Organisation I-ORG
+I-http://dbpedia.org/ontology/Organisation I-PER
+I-http://dbpedia.org/ontology/Organisation O
+I-http://dbpedia.org/ontology/Place I-LOC
+I-http://dbpedia.org/ontology/Place O
+I-http://dbpedia.org/ontology/Work I-MISC
+I-http://dbpedia.org/ontology/Work I-ORG
+I-http://dbpedia.org/ontology/Work O
+I-http://schema.org/MusicGroup I-PER
+O I-LOC
+O I-ORG
+O I-PER
+O O
