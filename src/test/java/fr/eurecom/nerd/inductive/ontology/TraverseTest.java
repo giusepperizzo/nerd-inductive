@@ -37,4 +37,5 @@ public class TraverseTest extends TestCase {
 		assertEquals(319, subOf.size());
 		
     }
+	
 }

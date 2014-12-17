@@ -36,8 +36,7 @@ public class TraverseHierarchy {
 	}
 
 	private Map<String, String> subOf = new HashMap<String, String>();
-    
-    
+        
     public void resolve( OntModel m, int maxDepth ) {
         // create an iterator over the root classes that are not anonymous class expressions
         Iterator<OntClass> i = m.listHierarchyRootClasses()

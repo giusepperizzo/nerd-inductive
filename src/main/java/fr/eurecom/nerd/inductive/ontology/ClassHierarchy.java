@@ -1,32 +1,28 @@
 package fr.eurecom.nerd.inductive.ontology;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 
-import com.hp.hpl.jena.ontology.ConversionException;
 import com.hp.hpl.jena.ontology.OntClass;
 import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
 import com.hp.hpl.jena.ontology.Restriction;
 import com.hp.hpl.jena.rdf.model.AnonId;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.shared.PrefixMapping;
 import com.hp.hpl.jena.util.iterator.Filter;
 
 
-public class ClassHierarchy {
-    // Constants
-    //////////////////////////////////
-
-    // Static variables
-    //////////////////////////////////
-
-    // Instance variables
-    //////////////////////////////////
+public class ClassHierarchy {	
 
     protected OntModel m_model;
     private Map<AnonId,String> m_anonIDs = new HashMap<AnonId, String>();
@@ -40,12 +36,6 @@ public class ClassHierarchy {
 	}
 	private Map<Integer, TreeSet<String>> layers = new HashMap<Integer,TreeSet<String>>();
 
-
-    // Constructors
-    //////////////////////////////////
-
-    // External signature methods
-    //////////////////////////////////
 
     /** Show the sub-class hierarchy encoded by the given model */
     public void showHierarchy( PrintStream out, OntModel m ) {
@@ -61,9 +51,18 @@ public class ClassHierarchy {
         }
     }
 
-
-    // Internal implementation methods
-    //////////////////////////////////
+    public Integer getLayer (String clazz) 
+    {       
+        Set<Integer> keys = new TreeSet<Integer>(layers.keySet());
+    	for (Integer key : keys) {
+        	TreeSet<String> classes = layers.get(key);
+        	for (String c : classes)
+        		if(c.equals(clazz))
+        			return key;
+    	} 	
+    	    	
+    	return -1;
+    }
 
     /** Present a class, then recurse down to the sub-classes.
      *  Use occurs check to prevent getting stuck in a loop
@@ -84,7 +83,6 @@ public class ClassHierarchy {
             }
         }
     }
-
 
     /**
      * <p>Render a description of the given class to the given output stream.</p>
@@ -161,9 +159,40 @@ public class ClassHierarchy {
         }
     }
 
-
-    //==============================================================================
-    // Inner class definitions
-    //==============================================================================
+    public static void main( String[] args ) 
+    {
+        OntModel m = ModelFactory.createOntologyModel( OntModelSpec.OWL_MEM, null );
+		m.read("data/dbpedia_3.8.owl", "RDF/XML");
+				
+		ClassHierarchy hier = new ClassHierarchy();
+        //hier.showHierarchy( System.out, m);
+		
+		try {
+			hier.showHierarchy( new PrintStream(new File("NUL")), m);
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+//        Map<Integer, TreeSet<String>> layers = hier.getLayers();
+//        Set<Integer> keys = new TreeSet<Integer>(layers.keySet());
+//        
+//        for (Integer key : keys) {
+//        	System.out.println(key);
+//        	TreeSet<String> classes = layers.get(key);
+//        	for (String clazz : classes)
+//        		System.out.println("\t"+ clazz);
+//        }
+        
+        System.out.println(hier.getLayer(":AdministrativeRegion"));
+        //System.out.println(hier.getLayer(":Schools"));
+//        System.out.println("-----------------------");
+//        TraverseHierarchy traverse = new TraverseHierarchy();
+//        traverse.resolve(m, maxDepth);
+//        Map<String,String> mappings = traverse.getSubOf();
+//        for (String s : new TreeSet<String>(mappings.keySet())) {
+//        	System.out.println(s + "," + mappings.get(s));
+//        }        
+    }
 
 }
